@@ -1,0 +1,16 @@
+<load target="referer.css" />
+<div class="x_page-header">
+	<h1>{$lang->referer_module}</h1>
+</div>
+<p>{$lang->referer_info}</p>
+<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/referer/tpl/referer_list/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+
+<ul class="x_nav x_nav-tabs">
+    <li <!--@if($act=='dispRefererAdminIndex')-->class="x_active"<!--@end-->><a href="{getUrl('host','','act','dispRefererAdminIndex')}">{$lang->referer_module} {$lang->cmd_list}</a></li>
+    <li <!--@if($act=='dispRefererAdminRanking')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRanking')}">{$lang->referer_module} {$lang->ranking}</a></li>
+    <li <!--@if($act=='dispRefererAdminConfirmReset')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfirmReset')}">{$lang->referer_module} {$lang->cmd_reset}</a></li>
+    <li><a href="{getURL('module','admin','act','dispAddonAdminSetup','selected_addon','referer')}" target="_blank">{$lang->addon_setup}</a></li>
+ 
+</ul>

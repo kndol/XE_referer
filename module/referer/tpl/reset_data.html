@@ -1,0 +1,15 @@
+<!--%import("filter/reset_data.xml")-->
+<!--%import("js/referer_admin.js")-->
+
+<include target="header.html" />
+<h2 class="h2">{$lang->cmd_reset}</h2>
+<form action="./" method="get" onsubmit="return procFilter(this, reset_data)">
+	<div class="message info">
+		<p>{$lang->confirm_reset}</p>
+	</div>
+	<div class="x_pull-right x_btn-group">
+		<a href="javascript:history.back();" class="x_btn modalAnchor">{$lang->cmd_back}</a>
+		<input type="submit" value="{$lang->cmd_reset}" class="x_btn modalAnchor x_btn-primary" />
+	</div>
+</form>
+

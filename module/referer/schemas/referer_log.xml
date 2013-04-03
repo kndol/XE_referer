@@ -1,0 +1,8 @@
+<table name="referer_log">
+    <column name="host" type="varchar" size="64" notnull="notnull" /> 
+    <column name="url" type="varchar" size="250" notnull="notnull" /> 
+    <column name="uagent" type="varchar" size="250" notnull="notnull" /> 
+    <column name="count" type="number" size="11" default="0" />
+    <column name="regdate" type="date" index="idx_referer2_log" />
+    <column name="regdate_last" type="date" />
+</table>

@@ -1,0 +1,31 @@
+<include target="header.html" />
+<div class="table even">
+	<table cellspacing="0" class="rowTable" style="width:100%">
+		<colgroup>
+			<col style="width:50px" />
+			<col />
+			<col style="width:60px" />
+			<col style="width:50px" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>{$lang->ranking}</th>
+				<th>URL</th>
+				<th>{$lang->readed_count}</th>
+				<th>{$lang->cmd_delete}</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!--{$rank = 1}-->
+			<!--@foreach($referer_status as $no => $val)-->
+			<tr class="row{$cycle_idx}">
+				<td class="number">{$rank}</td>
+				<td class="wide"><a href="{getUrl('act', 'dispRefererAdminIndex', 'host', $val->host)}" title="{$lang->view_selected_host}">{$val->host}</a></td>
+				<td class="number">{$val->cnt}</td>
+				<td class="delete"><a href="{getUrl('act', 'dispRefererAdminDeleteStat', 'host', $val->host)}" title="{$lang->cmd_delete}" class="buttonSet buttonDelete">{$lang->cmd_delete}</a></td>
+			</tr>
+		<!--{$rank += 1} -->
+			<!--@end-->
+		</tbody>   
+	</table>
+</div>
