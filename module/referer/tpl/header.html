@@ -1,16 +1,19 @@
-<load target="referer.css" />
+<load target="css/referer.css" />
+<load target="js/spin.min.js" />
 <div class="x_page-header">
-	<h1>{$lang->referer_module}</h1>
+	<h1>{$lang->referer}</h1>
 </div>
 <p>{$lang->referer_info}</p>
-<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/referer/tpl/referer_list/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
 	<p>{$XE_VALIDATOR_MESSAGE}</p>
 </div>
 
 <ul class="x_nav x_nav-tabs">
-    <li <!--@if($act=='dispRefererAdminIndex')-->class="x_active"<!--@end-->><a href="{getUrl('host','','act','dispRefererAdminIndex')}">{$lang->referer_module} {$lang->cmd_list}</a></li>
-    <li <!--@if($act=='dispRefererAdminRanking')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRanking')}">{$lang->referer_module} {$lang->ranking}</a></li>
-    <li <!--@if($act=='dispRefererAdminConfirmReset')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfirmReset')}">{$lang->referer_module} {$lang->cmd_reset}</a></li>
+    <li <!--@if($act=='dispRefererAdminIndex')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminIndex','page','1','search_keyword','')}">{$lang->referer} {$lang->cmd_list}</a></li>
+    <li <!--@if($act=='dispRefererAdminRanking'||$act=='dispRefererAdminDeleteStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->referer} {$lang->ranking}</a></li>
+    <li <!--@if($act=='dispRefererAdminRemoteRanking'||$act=='dispRefererAdminDeleteRemoteStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRemoteRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->remote} {$lang->ranking}</a></li>
+    <li <!--@if($act=='dispRefererAdminUAgentRanking'||$act=='dispRefererAdminDeleteUAgentStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminUAgentRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->uagent} {$lang->ranking}</a></li>
+    <li <!--@if($act=='dispRefererAdminConfirmReset')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfirmReset','search_keyword','','host','','remote','','uagent','')}">{$lang->referer} {$lang->cmd_reset}</a></li>
+    <li <!--@if($act=='dispRefererAdminConfig')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfig')}">{$lang->module_setup}</a></li>
     <li><a href="{getURL('module','admin','act','dispAddonAdminSetup','selected_addon','referer')}" target="_blank">{$lang->addon_setup}</a></li>
- 
 </ul>

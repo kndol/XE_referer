@@ -1,5 +1,0 @@
-<query id="resetReferer" action="delete">
-    <tables>
-	<table name="referer_log" />
-    </tables>
-</query>

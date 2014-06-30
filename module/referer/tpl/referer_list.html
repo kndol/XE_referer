@@ -9,19 +9,25 @@ jQuery(function($){
 <div class="table even">
 	<table cellspacing="0" class="rowTable" style="width:100%">
 	<colgroup>
-		<col style="width:150px" />
-		<col style="max-width:200px" />
+		<col style="width:120px" />
+		<col style="width:170px" />
+		<col style="max-width:220px" />
 		<col style="width:80px" />
-		<col />
+		<col style="min-width:220px" />
 		<col style="width:60px" />
 	</colgroup>
-	<caption>All ({number_format($total_count)}) / Page ({number_format($page)}/{number_format($total_page)}) &nbsp; &nbsp; &nbsp;<span cond="$host" class="btn">URL: <a href="http://{$host}" target="_blank">{$host}</a></span></caption>
+	<caption>All ({number_format($total_count)}) / Page ({number_format($page)}/{number_format($total_page)}) &nbsp; &nbsp; &nbsp;
+		<span cond="$host" class="btn">URL: <a href="http://{$host}" target="_blank">{$host}</a></span>
+		<span cond="$remote" class="btn">{$lang->remote}: <a href="http://myip.ms/info/whois/{$remote}" title="{$lang->IP_Tracing}" target="_blank">{$remote}</a></span>
+		<span cond="$uagent" class="btn"><a href="http://useragentstring.com/" title="{$lang->uagent_info}" target="_blank">http://useragentstring.com/</a></span>
+	</caption>
 	<thead>
 		<tr>
-			<th class="mobile-portrait-hidden">{$lang->first_accessed} ~ {$lang->last_accessed}</th>
+			<th class="mobile-portrait-hidden">{$lang->first_accessed}~{$lang->last_accessed}</th>
+			<th>{$lang->remote}</th>
 			<th>URL</th>
 			<th>UAgent</th>
-			<th>{$lang->referer_module}</th>
+			<th>{$lang->referer}</th>
 			<th>{$lang->readed_count}</th>
 		</tr>
 	</thead>
@@ -29,26 +35,19 @@ jQuery(function($){
 		<tr cond="!$referer_list"><td colspan="5" style="text-align:center">{$lang->msg_no_result}</td></tr>
 		<!--@foreach($referer_list as $no => $val)-->
 		<tr>
-			<td class="mobile-portrait-hidden">{zdate($val->regdate,"Y-m-d")}<br/>{zdate($val->regdate,"H:i:s")} ~ {zdate($val->regdate_last,"H:i:s")}</td>
+			<td class="date mobile-portrait-hidden">{zdate($val->regdate,"Y-m-d")}<br/>{zdate($val->regdate,"H:i:s")}~{zdate($val->regdate_last,"H:i:s")}</td>
 			<td>
-				<!--@if($val->url=="http://localhost")-->
-					N/A					
-				<!--@else-->
-					<a href="http://{$val->host}" title="http://{$val->host}" target="_blank">{$val->host}</a>
-					<span cond="preg_match('/(search.naver.com)/i',$val->host)" style="margin:0;padding:0"><br/>[Naver]</span>
-					<span cond="preg_match('/(google.com|google.co.kr)/i',$val->host)" style="margin:0;padding:0"><br/>[Google]</span>
-					<span cond="preg_match('/(search.daum.net)/i',$val->host)" style="margin:0;padding:0"><br/>[Daum]</span>
-				<!--@end-->
+				<span id="IP_{$no}" class="flag" ip="{$val->remote}"></span><a href="http://myip.ms/info/whois/{$val->remote}" title="{$lang->IP_Tracing}" target="_blank">{$val->remote}</a>
+			</td>
+			<td>
+			<!--@if($val->url=="http://localhost")-->
+				localhost
+			<!--@else-->
+				<span id="URL_{$no}" class="flag" ip="{$val->host}"></span><a href="http://{$val->host}" title="http://{$val->host}" target="_blank">{$val->host}</a>
+			<!--@end-->
 			</td>
 			<td class="userAgent">
-				<img src="img/safari-icon.png" alt="[Safari]" title="Safari" cond="preg_match('/(Safari)/i',$val->uagent) && !preg_match('/(Chrome)/i',$val->uagent)" />
-				<img src="img/chrome-icon.png" alt="[Chrome]" title="Chrome" cond="preg_match('/(Chrome)/i',$val->uagent)" />
-				<img src="img/firefox-icon.png" alt="[Firefox]" title="Firefox" cond="preg_match('/(Firefox)/i',$val->uagent)" />
-				<img src="img/opera-icon.png" alt="[Opera]" title="Opera" cond="preg_match('/(Opera)/i',$val->uagent)" />
-				<img src="img/ie-icon.png" alt="[IE]" title="Internet Explorer" cond="preg_match('/(MSIE)/i',$val->uagent)" />
-				<img src="img/facebook-icon.png" alt="[Facebook]" title="Facebook" cond="preg_match('/(Facebook)/i',$val->uagent)" />
-				<img src="img/mobile-icon.png" alt="[Mobile]" title="Mobile" cond="preg_match('/(iPhone|Samsung|lgtel|mobile)/i',$val->uagent)" />
-				<img src="img/others-icon.png" alt="[Others]" title="Others" cond="!preg_match('/(Safari|Chrome|Firefox|Opera|MSIE|Facebook|iPphone|Samsung|lgtel|mobile)/i',$val->uagent)" />
+<include target="ua_icons.html" />
 				<button type="button" class="sTog ua_view" title="Open/Close"><i class="x_icon-chevron-down"></i></button>
 				<div class="ua_more" style="display:none">{$val->uagent}</div>
 			</td>
@@ -65,38 +64,17 @@ jQuery(function($){
 	</tbody>
 	</table>
 	<div cond="$host" class="btnArea"><span class="btn"><a href="{getUrl('act', 'dispRefererAdminIndex', 'host', '')}">{$lang->cmd_view_all}</a></span></div>
-
-	<!-- 페이지 네비게이션 -->
-	<form action="./" class="pagination" cond="$page_navigation">
-		<input type="hidden" name="error_return_url" value="" />
+	<div cond="$remote" class="btnArea"><span class="btn"><a href="{getUrl('act', 'dispRefererAdminIndex', 'remote', '')}">{$lang->cmd_view_all}</a></span></div>
+	<div cond="$uagent" class="btnArea"><span class="btn"><a href="{getUrl('act', 'dispRefererAdminIndex', 'uagent', '')}">{$lang->cmd_view_all}</a></span></div>
+	<form action="./" method="post" class="search center x_input-append" no-error-return-url="true">
 		<input type="hidden" name="module" value="{$module}" />
-		<input type="hidden" name="act" value="{$act}" />
-		<input cond="$order_target" type="hidden" name="order_target" value="{$order_target}" />
-		<input cond="$order_type" type="hidden" name="order_type" value="{$order_type}" />
-		<input cond="$category_srl" type="hidden" name="category_srl" value="{$category_srl}" />
-		<input cond="$childrenList" type="hidden" name="childrenList" value="{$childrenList}" />
-		<input cond="$search_keyword" type="hidden" name="search_keyword" value="{$search_keyword}" />
-
-		<a href="{getUrl('page', '')}" class="direction">&laquo; FIRST</a>
-		<block cond="$page_navigation->first_page + $page_navigation->page_count > $page_navigation->last_page && $page_navigation->page_count != $page_navigation->total_page">
-			{@$isGoTo = true}
-			<a href="{getUrl('page', '')}">1</a>
-			<a href="#goTo" class="tgAnchor" title="{$lang->cmd_go_to_page}">...</a>
-		</block>
-		<block loop="$page_no = $page_navigation->getNextPage()">
-			{@$last_page = $page_no}
-			<strong cond="$page_no == $page">{$page_no}</strong>
-			<a cond="$page_no != $page" href="{getUrl('page', $page_no)}">{$page_no}</a>
-		</block>
-		<block cond="$last_page != $page_navigation->last_page">
-			{@$isGoTo = true}
-			<a href="#goTo" class="tgAnchor" title="{$lang->cmd_go_to_page}">...</a>
-			<a href="{getUrl('page', $page_navigation->last_page)}">{$page_navigation->last_page}</a>
-		</block>
-		<a href="{getUrl('page', $page_navigation->last_page)}" class="direction">LAST &raquo;</a>
-		<span cond="$isGoTo" id="goTo" class="tgContent">
-			<input name="page" title="{$lang->cmd_go_to_page}" />
-			<!--<button type="submit">Go</button>-->
-		</span>
+		<select name="search_target" style="margin-right:4px" title="{$lang->search_target}">
+		{@$search_target_list = array("referer"=>$lang->referer, "remote"=>$lang->remote, "uagent"=>$lang->uagent, "date"=>$lang->accessdate, "date_less"=>$lang->accessdate_less, "date_more"=>$lang->accessdate_more)}
+		<option value="{$key}" loop="$search_target_list=>$key,$val" selected="selected"|cond="$search_target==$key">{$val}</option>
+		</select>
+		<input type="search" name="search_keyword" value="{htmlspecialchars($search_keyword, ENT_COMPAT | ENT_HTML401, 'UTF-8', false)}" style="width:140px">
+		<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_search}</button>
+		<a class="x_btn" href="{getUrl('', 'module', 'admin', 'act', 'dispRefererAdminIndex', 'page', $page)}">{$lang->cmd_cancel}</a>
 	</form>
 </div>
+<include target="footer.html" />

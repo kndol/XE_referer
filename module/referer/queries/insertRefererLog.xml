@@ -3,9 +3,10 @@
         <table name="referer_log" />
     </tables>
     <columns>
-        <column name="host"         var="host"                        notnull="notnull" />
+        <column name="host"         var="host" />
+        <column name="remote"       var="remote" />
         <column name="url"          var="url" />
-        <column name="uagent"       var="uagent"                      notnull="notnull" />
+        <column name="uagent"       var="uagent" />
 		<column name="count"        var="count"   default="1" />
         <column name="regdate"      var="regdate" default="curdate()" notnull="notnull"/>
         <column name="regdate_last" var="regdate" default="curdate()" notnull="notnull"/>

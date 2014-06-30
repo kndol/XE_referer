@@ -1,0 +1,19 @@
+					<span class="ua_icon avant" title="Avant Browser" cond="preg_match('/(Avant)/i',$val->uagent)"></span>
+					<span class="ua_icon safari" title="Safari" cond="preg_match('/(Safari)/i',$val->uagent) && !preg_match('/(Chrome)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent) && !preg_match('/(Android)/i',$val->uagent) && !preg_match('/(Naver)/i',$val->uagent)"></span>
+					<span class="ua_icon apple" title="Apple PubSub Framework" cond="preg_match('/(Apple-PubSub)/i',$val->uagent)"></span>
+					<span class="ua_icon chrome" title="Chrome" cond="preg_match('/(Chrome)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent) && !preg_match('/(Naver)/i',$val->uagent)"></span>
+					<span class="ua_icon android" title="Android" cond="preg_match('/(Android)/i',$val->uagent) && preg_match('/(Safari)/i',$val->uagent) && !preg_match('/(Chrome)/i',$val->uagent) && !preg_match('/(Naver)/i',$val->uagent)"></span>
+					<span class="ua_icon firefox" title="Firefox" cond="preg_match('/(Firefox)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent) && !preg_match('/(daumoa)/i',$val->uagent) && !strstr($val->uagent, 'MSIE or Firefox mutant')"></span>
+					<span class="ua_icon opera" title="Opera" cond="preg_match('/(Opera)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent)"></span>
+					<span class="ua_icon ie" title="Internet Explorer" cond="preg_match('/(MSIE)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent) && !preg_match('/(daumoa)/i',$val->uagent) && !strstr($val->uagent, 'MSIE or Firefox mutant')"></span>
+					<span class="ua_icon ie" title="Internet Explorer 11" cond="preg_match('/(rv:11)/i',$val->uagent) && !preg_match('/(google)/i',$val->uagent) && preg_match('/(daumoa)/i',$val->uagent) == FALSE"></span>
+					<span class="ua_icon socialxe" title="SocialXE" cond="strstr($val->uagent, 'SocialXE ClientBot')"></span>
+					<span class="ua_icon facebook" title="Facebook" cond="preg_match('/(Facebook)/i',$val->uagent)"></span>
+					<span class="ua_icon google" title="Google" cond="preg_match('/(google)/i',$val->uagent)"></span>
+					<span class="ua_icon bing" title="Bing" cond="preg_match('/(bing|msnbot)/i',$val->uagent)"></span>
+					<span class="ua_icon daum" title="Daum" cond="preg_match('/(daumoa)/i',$val->uagent)"></span>
+					<span class="ua_icon naver" title="Naver" cond="preg_match('/(Naver|yeti)/i',$val->uagent)"></span>
+					<span class="ua_icon zum" title="Zum" cond="preg_match('/(zumbot)/i',$val->uagent)"></span>
+					<span class="ua_icon bot" title="Bot" cond="!strstr($val->uagent, 'SocialXE ClientBot') && (preg_match('/(bot|spider|crawler|slurp|yeti|daumoa|FeedDemon|Aboundex|NewsGatorOnline|DigExt|inboundscore|feedfetcher|Teoma|siteexplorer|recruitingpoint|NetcraftSurveyAgent)/i',$val->uagent) || strstr($val->uagent, 'MSIE or Firefox mutant; not on Windows server;') || strstr($val->uagent, 'Google favicon'))"></span>
+					<span class="ua_icon others" title="Others" cond="!preg_match('/(Safari|Chrome|Firefox|Opera|MSIE|rv:11|Facebook|iPhone|Samsung|lgtel|mobile|google|bing|msn|Apple-PubSub|Avant|bot|spider|crawler|slurp|yeti|daumoa|FeedDemon|Aboundex|NewsGatorOnline|DigExt|inboundscore|feedfetcher|Teoma|siteexplorer)/i',$val->uagent)"></span>
+					<span class="ua_icon mobile" title="Mobile" cond="preg_match('/(iPhone|Samsung|lgtel|mobile)/i',$val->uagent)"></span>

@@ -1,0 +1,26 @@
+<include target="header.html" />
+{$config->GeoIPSite}
+<form action="./" class="x_form-horizontal" ruleset="insertConfig" method="post">
+	<input type="hidden" name="module" value="referer" />
+	<input type="hidden" name="act" value="procRefererAdminInsertConfig" />
+	<input type="hidden" name="success_return_url" value="{getUrl('', 'module', 'admin', 'act', $act)}" />
+	<input type="hidden" name="xe_validator_id" value="modules/referer/tpl/1" />
+	<div class="x_control-group">
+		<div class="x_control-label">{$lang->GeoIPSite}</div>
+		<div class="x_controls">
+			<label class="x_inline" for="freegeoip"><input type="radio" name="GeoIPSite" id="freegeoip" value="freegeoip" checked="checked"|cond="$refererConfig->GeoIPSite=='freegeoip'||$refererConfig->GeoIPSite==''" /> freegeoip.net</label>
+			<label class="x_inline" for="smartip"><input type="radio" name="GeoIPSite" id="smartip" value="smartip" checked="checked"|cond="$refererConfig->GeoIPSite=='smartip'" /> smart-ip.net</label>
+			<label class="x_inline" for="telize"><input type="radio" name="GeoIPSite" id="telize" value="telize" checked="checked"|cond="$refererConfig->GeoIPSite=='telize'" /> telize.com</label>
+			<label class="x_inline" for="petabyet"><input type="radio" name="GeoIPSite" id="petabyet" value="petabyet" checked="checked"|cond="$refererConfig->GeoIPSite=='petabyet'" /> petabyet.com</label>
+			<p class="x_help-block">{$lang->about_GeoIPSite}<br /><br />
+				Powered by <a href="http://freegeoip.net" target="_blank">freegeoip.net</a>,
+				<a href="http://smart-ip.net" target="_blank">smart-ip.net</a>,
+				<a href="http://www.telize.com" target="_blank">telize.com</a>, 
+				<a href="http://www.petabyet.com" target="_blank">petabyet.com</a>.
+			</p>
+		</div>
+	</div>
+	<div class="btnArea x_clearfix">
+		<span class="x_pull-right"><input class="x_btn x_btn-primary" type="submit" value="{$lang->cmd_save}" /></span>
+	</div>
+</form>

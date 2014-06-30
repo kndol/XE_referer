@@ -6,6 +6,15 @@
         <column name="*" />
     </columns>
     <conditions>
+    	<condition operation="like" column="url" var="search_referer" />
+    	<condition operation="like" column="remote" var="search_remote" pipe="or" />
+    	<condition operation="like" column="uagent" var="search_uagent" pipe="or" />
+    	<condition operation="like" column="regdate" var="search_date" pipe="or" />
+    	<condition operation="like" column="regdate_last" var="search_date" pipe="or" />
+    	<condition operation="less" column="regdate" var="search_date_less" pipe="or" />
+    	<condition operation="less" column="regdate_last" var="search_date_less" pipe="or" />
+    	<condition operation="more" column="regdate" var="search_date_more" pipe="or" />
+    	<condition operation="more" column="regdate_last" var="search_date_more" pipe="or" />
     </conditions>
     <navigation>
         <index var="sort_index" default="regdate" order="desc" />

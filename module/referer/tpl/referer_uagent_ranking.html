@@ -11,7 +11,7 @@
 		<thead>
 			<tr>
 				<th>{$lang->ranking}</th>
-				<th>URL</th>
+				<th>{$lang->uagent}</th>
 				<th>{$lang->readed_count}</th>
 				<th>{$lang->cmd_delete}</th>
 			</tr>
@@ -21,15 +21,11 @@
 			<tr class="row{$cycle_idx}">
 				<td class="number">{$rank}</td>
 				<td class="wide">
-					<span id="{$no}" class="flag" ip="{$val->host}"></span><a href="{getUrl('act', 'dispRefererAdminIndex', 'host', $val->host)}" title="{$lang->view_selected_host}">{$val->host}</a>
-				<!--@if(filter_var($val->host, FILTER_VALIDATE_IP))-->
-					<a href="http://myip.ms/info/whois/{$val->host}" title="{$lang->IP_Tracing}" target="_blank">&nbsp;</a>
-				<!--@else-->
-					<a href="http://{$val->host}" title="http://{$val->host}" target="_blank">&nbsp;</a>
-				<!--@end-->
+<include target="ua_icons.html" />
+					<a href="{getUrl('act', 'dispRefererAdminIndex', 'uagent', $val->uagent)}" title="{$lang->view_selected_uagent}">{$val->uagent}</a>
 				</td>
 				<td class="number">{$val->cnt}</td>
-				<td class="delete"><a href="{getUrl('act', 'dispRefererAdminDeleteStat', 'host', $val->host)}" title="{$lang->cmd_delete}" class="buttonSet buttonDelete">{$lang->cmd_delete}</a></td>
+				<td class="delete"><a href="{getUrl('act', 'dispRefererAdminDeleteUAgentStat', 'uagent', $val->uagent)}" title="{$lang->cmd_delete}" class="buttonSet buttonDelete">{$lang->cmd_delete}</a></td>
 			</tr>
 		<!--{$rank += 1} -->
 			<!--@end-->

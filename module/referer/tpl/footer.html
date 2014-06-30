@@ -1,0 +1,69 @@
+<!-- 페이지 네비게이션 -->
+<div class="pagination pagination-centered">
+	<ul>
+		<li><a href="{getUrl('page','')}" class="direction">&laquo; {$lang->first_page}</a></li> 
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+		<li class="active"|cond="$page == $page_no"><a href="{getUrl('page',$page_no,'')}">{$page_no}</a></li> 
+        <!--@end-->
+		<li><a href="{getUrl('page',$page_navigation->last_page)}" class="direction">{$lang->last_page} &raquo;</a></li>
+	</ul>
+</div>
+<div id="loading"></div>
+<script type="text/javascript">// <![CDATA[
+jQuery(function($){
+	var oFlag = new Object();
+
+	var opts = {
+		left:$('.table').position().left+$('.table').width()/2+'px',
+		top:$('.table').offset().top+'px'
+	}
+	var target = document.getElementById('loading');
+	var spinner = new Spinner(opts);
+	var done = 0;
+	var total = 0;
+	
+	$('.flag').each(function() {
+		if (oFlag[$(this).attr('ip')] === undefined) {
+			oFlag[$(this).attr('ip')] = [];
+			++total;
+		}
+		oFlag[$(this).attr('ip')].push($(this).attr('id'));
+	});
+	if (Object.keys(oFlag).length) spinner.spin(target);
+	$.each(oFlag, function(ip, arrID) {
+<!--@if($refererConfig->GeoIPSite == "smartip")-->
+		$.getJSON('http://smart-ip.net/geoip-json/'+ip+'?callback=?', function(location) {
+			$.each(arrID, function(i, id) {
+				$('#'+id).addClass(location.countryCode);
+				$('#'+id).attr('title', location.countryName + ' (' + location.city + ', ' + location.region + ')');
+			});
+		})
+<!--@elseif($refererConfig->GeoIPSite == "telize")-->
+		$.getJSON('http://www.telize.com/geoip/'+ip+'?callback=?', function(location) {
+			$.each(arrID, function(i, id) {
+				$('#'+id).addClass(location.country_code);
+				$('#'+id).attr('title', location.country + ' (' + location.city + ', ' + location.region + ')');
+			});
+		})
+<!--@elseif($refererConfig->GeoIPSite == "petabyet")-->
+		$.getJSON('http://api.petabyet.com/geoip/'+ip+'?callback=?', function(location) {
+			$.each(arrID, function(i, id) {
+				$('#'+id).addClass(location.country_code);
+				$('#'+id).attr('title', location.country + ' (' + location.city + ', ' + location.region_name + ')');
+			});
+		})
+<!--@else-->
+		$.getJSON('http://freegeoip.net/json/'+ip, function(location) {
+			$.each(arrID, function(i, id) {
+				$('#'+id).addClass(location.country_code);
+				$('#'+id).attr('title', location.country_name + ' (' + location.city + ', ' + location.region_name + ')');
+			});
+		})
+<!--@end-->
+		.always(function() {
+			if (++done == total) spinner.stop();
+		})
+	});
+});
+
+// ]]></script>

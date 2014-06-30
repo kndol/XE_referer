@@ -6,10 +6,16 @@
         <action name="procRefererExecute" type="controller" standalone="true" />
         <action name="dispRefererAdminIndex" type="view" standalone="true" admin_index="true" />
         <action name="dispRefererAdminRanking" type="view" standalone="true" />
+        <action name="dispRefererAdminRemoteRanking" type="view" standalone="true" />
+        <action name="dispRefererAdminUAgentRanking" type="view" standalone="true" />
         <action name="dispRefererAdminConfirmReset" type="view" standalone="true" />
         <action name="dispRefererAdminDeleteStat" type="view" standalone="true" />
+        <action name="dispRefererAdminDeleteRemoteStat" type="view" standalone="true" />
+        <action name="dispRefererAdminDeleteUAgentStat" type="view" standalone="true" />
         <action name="dispRefererAdminResetData" type="view" standalone="true" />
+		<action name="dispRefererAdminConfig" type="view" standalone="true" />
         <action name="procRefererAdminDeleteStat" type="controller" standalone="true" />
         <action name="procRefererAdminResetData" type="controller" standalone="true" />
-    </actions>
+ 		<action name="procRefererAdminInsertConfig" type="controller" ruleset="insertConfig" />
+   </actions>
 </module>

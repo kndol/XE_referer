@@ -3,7 +3,9 @@
 
 <include target="header.html" />
 <h2 class="h2">{$lang->cmd_reset}</h2>
-<form action="./" method="get" onsubmit="return procFilter(this, reset_data)">
+<form action="./" method="post" onsubmit="return procFilter(this, reset_data)">
+ 	<input type="hidden" name="module" value="{$module}" />
+	<input type="hidden" name="xe_validator_id" value="modules/referer/tpl/1" />
 	<div class="message info">
 		<p>{$lang->confirm_reset}</p>
 	</div>

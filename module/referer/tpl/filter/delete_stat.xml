@@ -1,10 +1,13 @@
 <filter name="delete_stat" module="referer" act="procRefererAdminDeleteStat">
     <form>
-        <node target="host" required="true" />
+        <node target="host" />
+        <node target="remote" />
+        <node target="uagent" />
     </form>
     <response callback_func="completeDeleteStat">
         <tag name="error" />
         <tag name="message" />
         <tag name="page" />
+        <tag name="called_from" />
     </response>
 </filter>

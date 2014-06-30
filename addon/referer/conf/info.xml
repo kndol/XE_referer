@@ -16,19 +16,8 @@
     <description xml:lang="es">Recofrr referer log y estadísticas.</description>
     <description xml:lang="ru">Собирает лог рефералов и статистику.</description>
     <description xml:lang="zh-TW">紀錄反向連結統計資料。</description>
-    <version>3.1.1</version>
-    <date>2012-11-23</date>
-
-    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
-        <name xml:lang="ko">윈컴이</name>
-        <name xml:lang="jp">Wincomi</name>
-        <name xml:lang="zh-CN">Wincomi</name>
-        <name xml:lang="en">Wincomi</name>
-        <name xml:lang="es">Wincomi</name>
-        <name xml:lang="fr">Wincomi</name>
-        <name xml:lang="ru">Wincomi</name>
-        <name xml:lang="zh-TW">Wincomi</name>
-    </author>
+    <version>3.3.1</version>
+    <date>2014-06-20</date>
 
     <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
         <name xml:lang="ko">큰돌</name>
@@ -39,6 +28,17 @@
         <name xml:lang="es">KnDol</name>
         <name xml:lang="ru">KnDol</name>
         <name xml:lang="zn-TW">KnDol</name>
+    </author>
+
+    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
+        <name xml:lang="ko">윈컴이</name>
+        <name xml:lang="jp">Wincomi</name>
+        <name xml:lang="zh-CN">Wincomi</name>
+        <name xml:lang="en">Wincomi</name>
+        <name xml:lang="es">Wincomi</name>
+        <name xml:lang="fr">Wincomi</name>
+        <name xml:lang="ru">Wincomi</name>
+        <name xml:lang="zh-TW">Wincomi</name>
     </author>
     
 	<extra_vars>
@@ -89,14 +89,14 @@
 			<title xml:lang="jp">すぐに接続</title>
 			<title xml:lang="zn-CN">直接访问</title>
 			<title xml:lang="zn-TW">直接訪問</title>
-			<description xml:lang="ko">바로 접속한 정보도 포함하시겠습니까?</description>
-			<description xml:lang="en">Do you want to include direct access informations?</description>
-			<description xml:lang="es">¿Quieres incluir información de acceso directo?</description>
-			<description xml:lang="fr">Voulez-vous d'inclure des informations d'accès direct?</description>
-			<description xml:lang="ru">Вы хотите, чтобы включить прямую информацию доступа?</description>
-			<description xml:lang="jp">すぐに接続した情報も含まれてますか？</description>
-			<description xml:lang="zn-CN">直接连接到你想要的信息，包括？</description>
-			<description xml:lang="zn-TW">直接連接到你想要的信息，包括？</description>
+			<description xml:lang="ko">바로 접속한 정보도 포함하시겠습니까? (주소창에 주소를 직접 적었거나 즐겨찾기로 접속)</description>
+			<description xml:lang="en">Do you want to include direct access informations? (In case of direct access via address bar or bookmark)</description>
+			<description xml:lang="es">¿Quieres incluir información de acceso directo? (En caso de acceso directo a través de la barra de direcciones o marcador)</description>
+			<description xml:lang="fr">Voulez-vous d'inclure des informations d'accès direct? (Dans le cas d'un accès direct depuis la barre d'adresse ou un signet)</description>
+			<description xml:lang="ru">Вы хотите, чтобы включить прямую информацию доступа? (В случае прямой доступ из адресной строки или закладки.)</description>
+			<description xml:lang="jp">すぐに接続した情報も含まれてますか？ (アドレスバーにアドレスを直接入力したりブックマークで接続した場合)</description>
+			<description xml:lang="zn-CN">直接连接到你想要的信息，包括？（在地址栏或书签直接访问的情况下。)</description>
+			<description xml:lang="zn-TW">直接連接到你想要的信息，包括？（在地址欄或書籤直接訪問的情況下。)</description>
             <options value="no">
                 <title xml:lang="ko">아니요 (포함 안함)</title>
                 <title xml:lang="en">No (Not Include)</title>
@@ -106,7 +106,7 @@
                 <title xml:lang="jp">いいえ（含む不可）</title>
                 <title xml:lang="zn-CN">否（不包括）</title>
                 <title xml:lang="zn-TW">否（不包括）</title>
-           </options>
+			</options>
             <options value="yes">
                 <title xml:lang="ko">예 (포함)</title>
                 <title xml:lang="en">Yes (Include)</title>
@@ -116,6 +116,44 @@
                 <title xml:lang="jp">はい（含む）</title>
                 <title xml:lang="zn-CN">好 （含税）</title>
                 <title xml:lang="zn-TW">好 （含稅）</title>
+            </options>
+		</var>
+		<var name="exclude_bot" type="select">
+			<title xml:lang="ko">알려진 봇의 접근 기록 제외</title>
+			<title xml:lang="en">Exclude access data of known bots</title>
+			<title xml:lang="es">Excluir los datos de acceso de los robots conocidos</title>
+			<title xml:lang="fr">Exclure les données d'accès de robots connus</title>
+			<title xml:lang="ru">Исключить данные известных ботов доступа</title>
+			<title xml:lang="jp">既知のボットのアクセス記録を除く</title>
+			<title xml:lang="zn-CN">排除已知的僵尸程序访问数据</title>
+			<title xml:lang="zn-TW">排除已知的殭屍程序訪問數據</title>
+			<description xml:lang="ko">이 선택은 아래 두 옵션보다 우선합니다.</description>
+			<description xml:lang="en">This selection takes precedence over the following two options.</description>
+			<description xml:lang="es">Esta selección tiene prioridad sobre las siguientes dos opciones.</description>
+			<description xml:lang="fr">Cette sélection a préséance sur les deux options suivantes.</description>
+			<description xml:lang="ru">Этот выбор имеет приоритет над следующими двумя вариантами.</description>
+			<description xml:lang="jp">この選択は、次の二つのオプションよりも優先されます。</description>
+			<description xml:lang="zn-CN">这种选择优先于以下两个选项。</description>
+			<description xml:lang="zn-TW">這種選擇優先於以下兩個選項。</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함)</title>
+                <title xml:lang="en">No (Include)</title>
+                <title xml:lang="es">No (Incluido)</title>
+                <title xml:lang="fr">Non (Include)</title>
+                <title xml:lang="ru">Нет (Включить)</title>
+                <title xml:lang="jp">いいえ（含む）</title>
+                <title xml:lang="zn-CN">否（含税）</title>
+                <title xml:lang="zn-TW">否（含稅）</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함 안함)</title>
+                <title xml:lang="en">Yes (Not Include)</title>
+                <title xml:lang="es">Sí (No Incluido)</title>
+                <title xml:lang="fr">Oui (Ne Pas Inclure)</title>
+                <title xml:lang="ru">Да (не включить)</title>
+                <title xml:lang="jp">はい（含む不可）</title>
+                <title xml:lang="zn-CN">好 （不包括）</title>
+                <title xml:lang="zn-TW">好 （不包括）</title>
             </options>
 		</var>
 		<var name="exclude_uagent" type="text" default="">
