@@ -16,8 +16,8 @@
     <description xml:lang="es">Recofrr referer log y estadísticas.</description>
     <description xml:lang="ru">Собирает лог рефералов и статистику.</description>
     <description xml:lang="zh-TW">紀錄反向連結統計資料。</description>
-    <version>3.3.1</version>
-    <date>2014-06-20</date>
+    <version>3.3.3</version>
+    <date>2014-08-06</date>
 
     <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
         <name xml:lang="ko">큰돌</name>

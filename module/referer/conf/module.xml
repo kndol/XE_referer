@@ -8,6 +8,7 @@
         <action name="dispRefererAdminRanking" type="view" standalone="true" />
         <action name="dispRefererAdminRemoteRanking" type="view" standalone="true" />
         <action name="dispRefererAdminUAgentRanking" type="view" standalone="true" />
+        <action name="dispRefererAdminUAgentStat" type="view" standalone="true" />
         <action name="dispRefererAdminConfirmReset" type="view" standalone="true" />
         <action name="dispRefererAdminDeleteStat" type="view" standalone="true" />
         <action name="dispRefererAdminDeleteRemoteStat" type="view" standalone="true" />

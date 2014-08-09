@@ -9,6 +9,29 @@ table.rowTable td.delete {text-align:center; !important}
 table.rowTable td.URL {letter-spacing:-1px; !important}
 .x .sTog{float:right;border:0;background-color:transparent;width:28px;height:18px;opacity:.5;filter:alpha(opacity=50)}
 
+.chart-container{overflow:auto;width:100%;margin-bottom:20px}
+.chart-container h1,
+.chart-container h2,
+.chart-container h3,
+.chart-container h4{font-weight:bold;position:relative;zoom:1;margin-bottom:10px;border-bottom:1px solid #ddd}
+.chart-container h1{border-bottom-width:4px;font-size:24px}
+.chart-container h2{border-bottom-width:3px;font-size:20px}
+.chart-container h3{border-bottom-width:2px;font-size:16px}
+.chart-container h4{border-bottom-width:1px;font-size:12px}
+.canvas-holder{max-width:450px;margin-bottom:5px;position:relative;padding:0}
+.chart-title{max-width:450px;font-weight:bold;text-align:center;color:#555;margin-bottom:30px}
+.half {width:50% !important;float:left !important;}
+.labeled-chart-container {padding:0;position:relative}
+.doughnut-legend {list-style:none;position:absolute;right:-50px;top:0;margin:0;padding:0;width:130px}
+.doughnut-legend li {display:block;padding-left:10px;position:relative;line-height:16px;margin:0px;border-radius:5px;padding:2px 2px 2px 20px;font-size:10px;cursor:default;-webkit-transition:background-color 200ms ease-in-out;-moz-transition:background-color 200ms ease-in-out;-o-transition:background-color 200ms ease-in-out;transition:background-color 200ms ease-in-out;}
+.doughnut-legend li:hover {background-color:#eaeaea;}
+.doughnut-legend li span {display:block;position:absolute;left:2px;top:4px;width:15px;height:15px;border-radius:5px}
+@media only screen and (max-width: 640px) {
+	.half {float:none !important;width:100% !important}
+	.doughnut-legend li {line-height:12px !important;font-size:10px !important}
+	.doughnut-legend li span {top:1px !important;width:13px !important;height:13px !important}
+}
+
 /* Pagination */
 .pagination{margin:20px 0}
 .pagination ul{padding:0;display:inline-block;*display:inline;margin-bottom:0;margin-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;*zoom:1;-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:0 1px 2px rgba(0, 0, 0, 0.05)}

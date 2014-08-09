@@ -20,8 +20,8 @@
     <description xml:lang="es">Basic referer programa de estadísticas.</description>
     <description xml:lang="tr">Temel referer istatistik programı.</description>
     <description xml:lang="vi">Cơ bản chương trình thống kê referer.</description>
-    <version>3.6.5</version>
-    <date>2014-06-20</date>
+    <version>3.7.0</version>
+    <date>2014-08-09</date>
     <category>statistics</category>
     
     <author email_address="kndol@kndol.net" link="http://www.kndol.net/">

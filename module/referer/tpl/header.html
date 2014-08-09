@@ -1,4 +1,4 @@
-<load target="css/referer.css" />
+﻿<load target="css/referer.css" />
 <load target="js/spin.min.js" />
 <div class="x_page-header">
 	<h1>{$lang->referer}</h1>
@@ -13,7 +13,8 @@
     <li <!--@if($act=='dispRefererAdminRanking'||$act=='dispRefererAdminDeleteStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->referer} {$lang->ranking}</a></li>
     <li <!--@if($act=='dispRefererAdminRemoteRanking'||$act=='dispRefererAdminDeleteRemoteStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminRemoteRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->remote} {$lang->ranking}</a></li>
     <li <!--@if($act=='dispRefererAdminUAgentRanking'||$act=='dispRefererAdminDeleteUAgentStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminUAgentRanking','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->uagent} {$lang->ranking}</a></li>
-    <li <!--@if($act=='dispRefererAdminConfirmReset')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfirmReset','search_keyword','','host','','remote','','uagent','')}">{$lang->referer} {$lang->cmd_reset}</a></li>
-    <li <!--@if($act=='dispRefererAdminConfig')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfig')}">{$lang->module_setup}</a></li>
-    <li><a href="{getURL('module','admin','act','dispAddonAdminSetup','selected_addon','referer')}" target="_blank">{$lang->addon_setup}</a></li>
+    <li <!--@if($act=='dispRefererAdminUAgentStat')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminUAgentStat','page','1','search_keyword','','host','','remote','','uagent','')}">{$lang->uagent} {$lang->statistics}</a></li>
+    <li <!--@if($act=='dispRefererAdminConfirmReset')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfirmReset','page','','search_keyword','','host','','remote','','uagent','')}">{$lang->referer} {$lang->cmd_reset}</a></li>
+    <li <!--@if($act=='dispRefererAdminConfig')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispRefererAdminConfig','page','','search_keyword','','host','','remote','','uagent','')}">{$lang->module_setup}</a></li>
+    <li><a href="{getURL('module','admin','act','dispAddonAdminSetup','selected_addon','referer','page','','search_keyword','','host','','remote','','uagent','')}" target="_blank">{$lang->addon_setup}</a></li>
 </ul>

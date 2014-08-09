@@ -1,12 +1,13 @@
-<query id="getRemoteStatistics" action="select">
+<query id="getUAgentRanking" action="select">
     <tables>
-	<table name="referer_remote_statistics" />
+	<table name="referer_uagent_statistics" />
     </tables>
     <columns>
-	<column name="remote" />
+	<column name="uagent" />
 	<column name="count" alias="cnt" />
     </columns>
     <conditions>
+    	<condition operation="like" column="uagent" var="search_keyword" />
     </conditions>
     <navigation>
 	<index var="sort_index" default="cnt" order="desc" />

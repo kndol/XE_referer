@@ -76,15 +76,18 @@ class refererModel extends referer {
         return $output->data;
 	}
 
-    function getRefererStatus($ranking_mode, $obj) {
+    function getRefererRanking($ranking_mode, $obj) {
     	switch ($ranking_mode) {
     		case 0:
-    			return executeQuery("referer.getRefererStatistics", $obj);
+    			return executeQuery("referer.getRefererRanking", $obj);
     			break;
     		case 1:
-		        return executeQuery("referer.getRemoteStatistics", $obj);
+		        return executeQuery("referer.getRemoteRanking", $obj);
     			break;
     		case 2:
+		        return executeQuery("referer.getUAgentRanking", $obj);
+    			break;
+    		case 3:
 		        return executeQuery("referer.getUAgentStatistics", $obj);
     			break;
     	}

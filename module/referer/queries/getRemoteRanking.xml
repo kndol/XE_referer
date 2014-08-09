@@ -1,12 +1,13 @@
-<query id="getRefererStatistics" action="select">
+<query id="getRemoteRanking" action="select">
     <tables>
-	<table name="referer_statistics" />
+	<table name="referer_remote_statistics" />
     </tables>
     <columns>
-	<column name="host" />
+	<column name="remote" />
 	<column name="count" alias="cnt" />
     </columns>
     <conditions>
+    	<condition operation="like" column="remote" var="search_keyword" />
     </conditions>
     <navigation>
 	<index var="sort_index" default="cnt" order="desc" />

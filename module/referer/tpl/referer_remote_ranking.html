@@ -31,5 +31,11 @@
 			<!--@end-->
 		</tbody>
 	</table>
+	<form action="./" method="post" class="search center x_input-append" no-error-return-url="true">
+		<input type="hidden" name="module" value="{$module}" />
+		<input type="search" name="search_keyword" value="{htmlspecialchars($search_keyword, ENT_COMPAT | ENT_HTML401, 'UTF-8', false)}" style="width:140px">
+		<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_search}</button>
+		<a class="x_btn" href="{getUrl('', 'module', $module, 'act', $act, 'page', $page)}">{$lang->cmd_cancel}</a>
+	</form>
 </div>
 <include target="footer.html" />
