@@ -1,0 +1,9 @@
+<query id="insertRemoteStatistics" action="insert">
+	<tables>
+		<table name="referer_remote_statistics" />
+	</tables>
+	<columns>
+		<column name="remote" var="remote" notnull="notnull" />
+		<column name="count" var="count" default="1" />
+	</columns>
+</query>

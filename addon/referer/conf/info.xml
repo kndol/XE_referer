@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">리퍼러 수집기</title>
+    <title xml:lang="jp">リファラーコレクター</title>
+    <title xml:lang="zh-CN">反向链接统计</title>
+    <title xml:lang="en">Referer Collector</title>
+    <title xml:lang="fr">Referer Collector</title>
+    <title xml:lang="es">Colector de Referer</title>
+    <title xml:lang="ru">Сборщик рефералов</title>
+    <title xml:lang="zh-TW">反向連結統計</title>
+    <description xml:lang="ko">Referer log를 수집합니다. 원작 : haneul</description>
+    <description xml:lang="jp">リファラーログを収集します。</description>
+    <description xml:lang="zh-CN">记录反向链接统计数据。</description>
+    <description xml:lang="en">Collect referer log and statistics.</description>
+    <description xml:lang="fr">Sammeln Sie Referer-Log und Statistik.</description>
+    <description xml:lang="es">Recofrr referer log y estadísticas.</description>
+    <description xml:lang="ru">Собирает лог рефералов и статистику.</description>
+    <description xml:lang="zh-TW">紀錄反向連結統計資料。</description>
+    <version>3.3.4</version>
+    <date>2014-09-12</date>
+
+    <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
+        <name xml:lang="ko">큰돌</name>
+        <name xml:lang="jp">KnDol</name>
+        <name xml:lang="zn-CN">KnDol</name>
+        <name xml:lang="en">KnDol</name>
+        <name xml:lang="fr">KnDol</name>
+        <name xml:lang="es">KnDol</name>
+        <name xml:lang="ru">KnDol</name>
+        <name xml:lang="zn-TW">KnDol</name>
+    </author>
+
+    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
+        <name xml:lang="ko">윈컴이</name>
+        <name xml:lang="jp">Wincomi</name>
+        <name xml:lang="zh-CN">Wincomi</name>
+        <name xml:lang="en">Wincomi</name>
+        <name xml:lang="es">Wincomi</name>
+        <name xml:lang="fr">Wincomi</name>
+        <name xml:lang="ru">Wincomi</name>
+        <name xml:lang="zh-TW">Wincomi</name>
+    </author>
+    
+	<extra_vars>
+		<var name="admin" type="select">
+			<title xml:lang="ko">최고관리자</title>
+			<title xml:lang="en">Administrator</title>
+			<title xml:lang="es">Administrador</title>
+			<title xml:lang="fr">Administrateur</title>
+			<title xml:lang="ru">Администратор</title>
+			<title xml:lang="jp">最高管理者</title>
+			<title xml:lang="zn-CN">高层管理者</title>
+			<title xml:lang="zn-TW">高層管理者</title>
+			<description xml:lang="ko">최고관리자도 포함하시겠습니까?</description>
+			<description xml:lang="en">Do you want to include the referer of admin's connection?</description>
+			<description xml:lang="es">¿Desea incluir la referencia de conexión de administrador?</description>
+			<description xml:lang="fr">Voulez-vous d'inclure le référent de connexion administrateur?</description>
+			<description xml:lang="ru">Вы хотите, чтобы включить реферер администратора связь?</description>
+			<description xml:lang="jp">あなたは管理者接続のリファラを含むようにしたいですか？</description>
+			<description xml:lang="zn-CN">你想包括管理连接的引荐？</description>
+			<description xml:lang="zn-TW">你想包括管理連接的引薦？</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함 안함)</title>
+                <title xml:lang="en">No (Not Include)</title>
+                <title xml:lang="es">No (No Incluido)</title>
+                <title xml:lang="fr">Non (Ne Pas Inclure)</title>
+                <title xml:lang="ru">Нет (не включить)</title>
+                <title xml:lang="jp">いいえ（含む不可）</title>
+                <title xml:lang="zn-CN">否（不包括）</title>
+                <title xml:lang="zn-TW">否（不包括）</title>
+            </options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함)</title>
+                <title xml:lang="en">Yes (Include)</title>
+                <title xml:lang="es">Sí (Incluido)</title>
+                <title xml:lang="fr">Oui (Include)</title>
+                <title xml:lang="ru">Да (Включить)</title>
+                <title xml:lang="jp">はい（含む）</title>
+                <title xml:lang="zn-CN">好 （含税）</title>
+                <title xml:lang="zn-TW">好 （含稅）</title>
+            </options>
+		</var>
+		<var name="include_direct_access" type="select">
+			<title xml:lang="ko">바로 접속</title>
+			<title xml:lang="en">Direct Access</title>
+			<title xml:lang="es">Acceso Directo</title>
+			<title xml:lang="fr">Accès Direct</title>
+			<title xml:lang="ru">Прямой доступ</title>
+			<title xml:lang="jp">すぐに接続</title>
+			<title xml:lang="zn-CN">直接访问</title>
+			<title xml:lang="zn-TW">直接訪問</title>
+			<description xml:lang="ko">바로 접속한 정보도 포함하시겠습니까? (주소창에 주소를 직접 적었거나 즐겨찾기로 접속)</description>
+			<description xml:lang="en">Do you want to include direct access informations? (In case of direct access via address bar or bookmark)</description>
+			<description xml:lang="es">¿Quieres incluir información de acceso directo? (En caso de acceso directo a través de la barra de direcciones o marcador)</description>
+			<description xml:lang="fr">Voulez-vous d'inclure des informations d'accès direct? (Dans le cas d'un accès direct depuis la barre d'adresse ou un signet)</description>
+			<description xml:lang="ru">Вы хотите, чтобы включить прямую информацию доступа? (В случае прямой доступ из адресной строки или закладки.)</description>
+			<description xml:lang="jp">すぐに接続した情報も含まれてますか？ (アドレスバーにアドレスを直接入力したりブックマークで接続した場合)</description>
+			<description xml:lang="zn-CN">直接连接到你想要的信息，包括？（在地址栏或书签直接访问的情况下。)</description>
+			<description xml:lang="zn-TW">直接連接到你想要的信息，包括？（在地址欄或書籤直接訪問的情況下。)</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함 안함)</title>
+                <title xml:lang="en">No (Not Include)</title>
+                <title xml:lang="es">No (No Incluido)</title>
+                <title xml:lang="fr">Non (Ne Pas Inclure)</title>
+                <title xml:lang="ru">Нет (не включить)</title>
+                <title xml:lang="jp">いいえ（含む不可）</title>
+                <title xml:lang="zn-CN">否（不包括）</title>
+                <title xml:lang="zn-TW">否（不包括）</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함)</title>
+                <title xml:lang="en">Yes (Include)</title>
+                <title xml:lang="es">Sí (Incluido)</title>
+                <title xml:lang="fr">Oui (Include)</title>
+                <title xml:lang="ru">Да (Включить)</title>
+                <title xml:lang="jp">はい（含む）</title>
+                <title xml:lang="zn-CN">好 （含税）</title>
+                <title xml:lang="zn-TW">好 （含稅）</title>
+            </options>
+		</var>
+		<var name="exclude_bot" type="select">
+			<title xml:lang="ko">알려진 봇의 접근 기록 제외</title>
+			<title xml:lang="en">Exclude access data of known bots</title>
+			<title xml:lang="es">Excluir los datos de acceso de los robots conocidos</title>
+			<title xml:lang="fr">Exclure les données d'accès de robots connus</title>
+			<title xml:lang="ru">Исключить данные известных ботов доступа</title>
+			<title xml:lang="jp">既知のボットのアクセス記録を除く</title>
+			<title xml:lang="zn-CN">排除已知的僵尸程序访问数据</title>
+			<title xml:lang="zn-TW">排除已知的殭屍程序訪問數據</title>
+			<description xml:lang="ko">이 선택은 아래 두 옵션보다 우선합니다.</description>
+			<description xml:lang="en">This selection takes precedence over the following two options.</description>
+			<description xml:lang="es">Esta selección tiene prioridad sobre las siguientes dos opciones.</description>
+			<description xml:lang="fr">Cette sélection a préséance sur les deux options suivantes.</description>
+			<description xml:lang="ru">Этот выбор имеет приоритет над следующими двумя вариантами.</description>
+			<description xml:lang="jp">この選択は、次の二つのオプションよりも優先されます。</description>
+			<description xml:lang="zn-CN">这种选择优先于以下两个选项。</description>
+			<description xml:lang="zn-TW">這種選擇優先於以下兩個選項。</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함)</title>
+                <title xml:lang="en">No (Include)</title>
+                <title xml:lang="es">No (Incluido)</title>
+                <title xml:lang="fr">Non (Include)</title>
+                <title xml:lang="ru">Нет (Включить)</title>
+                <title xml:lang="jp">いいえ（含む）</title>
+                <title xml:lang="zn-CN">否（含税）</title>
+                <title xml:lang="zn-TW">否（含稅）</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함 안함)</title>
+                <title xml:lang="en">Yes (Not Include)</title>
+                <title xml:lang="es">Sí (No Incluido)</title>
+                <title xml:lang="fr">Oui (Ne Pas Inclure)</title>
+                <title xml:lang="ru">Да (не включить)</title>
+                <title xml:lang="jp">はい（含む不可）</title>
+                <title xml:lang="zn-CN">好 （不包括）</title>
+                <title xml:lang="zn-TW">好 （不包括）</title>
+            </options>
+		</var>
+		<var name="exclude_uagent" type="text" default="">
+			<title xml:lang="ko">제외할 UserAgent</title>
+			<title xml:lang="en">UserAgent to Exclude</title>
+			<title xml:lang="es">UserAgent para excluir</title>
+			<title xml:lang="fr">UserAgent à exclure</title>
+			<title xml:lang="ru">UserAgent, чтобы исключить</title>
+			<title xml:lang="jp">除外するUserAgent</title>
+			<title xml:lang="zn-CN">要排除的UserAgent</title>
+			<title xml:lang="zn-TW">要排除的UserAgent</title>
+			<description xml:lang="ko">이 문자열을 포함하는 UserAgent는 기록에 넣지 않습니다.
+				항목이 여러 개일 경우 각 문자열은 '|'로 구분하세요. (예: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="en">UserAgents including these strings are not included.
+				Two or more items must be seperated by '|'. (Ex: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="es">UserAgents incluyendo estas cadenas no están incluidos.
+				Dos o más artículos deben ser separados por '|'. (Por ejemplo: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="fr">UserAgents dont ces chaînes ne sont pas inclus.
+				Deux ou plusieurs éléments doivent être séparés par '|'. (Ex: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="ru">UserAgents в том числе эти строки не включаются.
+				Два или более пунктов должны быть разделены символом "|". (Пример: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="jp">以下の文字列を含むUserAgentは記録には入れません。
+				項目が複数ある場合、各文字列は'|'で区切ってください。 （例： bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="zn-CN">用户代理不穿的记录，其中包含下面的字符串。
+				如果有多个项目，每串由'|'分开！ （例如： bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="zn-TW">用戶代理不穿的記錄，其中包含下面的字符串。
+				如果有多個項目，每串由'|'分開！ （例如： bot|slurp|spider|yeti|daumoa)</description>
+		</var>
+		<var name="exclude_host" type="text" default="">
+			<title xml:lang="ko">제외할 호스트</title>
+			<title xml:lang="en">Hosts to Exclude</title>
+			<title xml:lang="es">Hosts para excluir</title>
+			<title xml:lang="fr">Hôtes à exclure</title>
+			<title xml:lang="ru">Посетителей Исключить</title>
+			<title xml:lang="jp">除外するホスト</title>
+			<title xml:lang="zn-CN">为了排除主机</title>
+			<title xml:lang="zn-TW">為了排除主機</title>
+			<description xml:lang="ko">이 문자열을 포함하는 주소는 기록에 넣지 않습니다.
+				항목이 여러 개일 경우 각 문자열은 '|'로 구분하세요. (예: google|www.xpressengine.com)</description>
+			<description xml:lang="en">Hosts including these strings are not included.
+				Two or more items must be seperated by '|'. (Ex: google|www.xpressengine.com)</description>
+			<description xml:lang="es">Anfitriones que incluyen estas cadenas no están incluidos.
+				Dos o más artículos deben ser separados por '|'. (Por ejemplo: google|www.xpressengine.com)</description>
+			<description xml:lang="fr">Les hôtes y compris ces chaînes ne sont pas inclus.
+				Deux ou plusieurs éléments doivent être séparés par '|'. (Ex: google|www.xpressengine.com)</description>
+			<description xml:lang="ru">Посетителей в том числе эти строки не включаются.
+				Два или более пунктов должны быть разделены символом "|". (Пример: google|www.xpressengine.com)</description>
+			<description xml:lang="jp">この文字列を含むアドレスは記録には入れません。
+				項目が複数ある場合、各文字列は'|'で区切ってください。 （例： google|www.xpressengine.com)</description>
+			<description xml:lang="zn-CN">地址不记录，其中包含的字符串。
+				如果有多个项目，每串由'|'分开！ （例如：  google|www.xpressengine.com)</description>
+			<description xml:lang="zn-TW">地址不記錄，其中包含的字符串。
+				如果有多個項目，每串由'|'分開！ （例如：  google|www.xpressengine.com)</description>
+		</var>
+		<var name="delete_olddata" type="text" default="">
+			<title xml:lang="ko">자동 삭제</title>
+			<title xml:lang="en">Auto-Delete</title>
+			<title xml:lang="es">Automático de Eliminación</title>
+			<title xml:lang="fr">Automatique de Suppression</title>
+			<title xml:lang="ru">Автоматическое Удаление</title>
+			<title xml:lang="jp">自動削除</title>
+			<title xml:lang="zn-CN">自动删除</title>
+			<title xml:lang="zn-TW">自動刪除</title>
+			<description xml:lang="ko">지정한 일 수가 지난 데이터를 자동 삭제합니다. (기본값: 0 = 자동 삭제하지 않습니다.)
+				자동 삭제 시 리퍼러 기록만 삭제하고 순위 데이터는 변경하지 않습니다.</description>
+			<description xml:lang="en">Data after these days are automatically deleted. (Default: 0 = Do not delete automatically.)
+				Auto-Delete will delete referer log only, but do not delete or modify referer statistics.</description>
+			<description xml:lang="es">Los datos después de estos días se eliminan automáticamente. (Por defecto:. 0 = No borrar automáticamente)
+				Automático de Eliminación borrará registro referer solo, pero no elimine o modifique las estadísticas referer.</description>
+			<description xml:lang="fr">Les données après ces jours sont automatiquement supprimés. (Par défaut:. 0 = Ne pas supprimer automatiquement)
+				Automatique de Suppression supprimera journal referer seulement, mais ne pas supprimer ou modifier les statistiques de referer.</description>
+			<description xml:lang="ru">Данные после этих дней, автоматически удаляются. (По умолчанию:. 0 = Не удалять автоматически)
+				Автоматическое удаление будет удалить реферера журнала только, но не удалить или изменить реферер статистики.</description>
+			<description xml:lang="jp">指定した日数が過ぎデータを自動的に削除します。 (デフォルト: 0 = 自動削除されません。)
+				自動削除時リファラ記録だけを削除して順位データは変更されません。</description>
+			<description xml:lang="zn-CN">在过去指定天数的数据将被自动删除。 （默认值：0 =不自动删除）。
+				自动删除只是删除了创纪录的引荐和排名没有发生变化的数据。</description>
+			<description xml:lang="zn-TW">在過去指定天數的數據將被自動刪除。 （默認值：0 =不自動刪除）。
+				自動刪除只是刪除了創紀錄的引薦和排名沒有發生變化的數據。</description>
+		</var>
+	</extra_vars>
+</addon>
