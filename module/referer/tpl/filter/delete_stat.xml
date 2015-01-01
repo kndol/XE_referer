@@ -2,6 +2,10 @@
     <form>
         <node target="host" />
         <node target="remote" />
+        <node target="member_srl" />
+        <node target="called_from" />
+        <node target="ref_mid" />
+        <node target="ref_document_srl" />
         <node target="uagent" />
     </form>
     <response callback_func="completeDeleteStat">

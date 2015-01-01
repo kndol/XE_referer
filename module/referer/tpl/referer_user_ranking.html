@@ -1,33 +1,37 @@
 <include target="header.html" />
-{@$oRefererModel = &getModel('referer')}
+{@$oMemberModel = &getModel('member')}
+{@$oRefererClass = &getClass('referer')}
 <div class="table even">
 	<table cellspacing="0" class="rowTable">
+		<caption>
+			All ({number_format($total_count)}) / Page ({number_format($page)}/{number_format($total_page)}) &nbsp; &nbsp; &nbsp;
+			<div cond="$host"><span class="btn">URL: <a href="http://{$host}" target="_blank">{$host}</a></span><span id="URL" class="flag" ip="{$host}"></span></div>
+		</caption>
 		<colgroup>
 			<col style="width:50px" />
 			<col style="max-width:865px" />
 			<col style="width:60px" />
 			<col style="width:50px" />
 		</colgroup>
-		<caption>All ({number_format($total_count)}) / Page ({number_format($page)}/{number_format($total_page)})</caption>
 		<thead>
 			<tr>
 				<th>{$lang->ranking}</th>
-				<th>{$lang->uagent}</th>
+				<th>{$lang->user_id}</th>
 				<th>{$lang->readed_count}</th>
 				<th>{$lang->cmd_delete}</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr cond="!$referer_status"><td colspan="4" style="text-align:center">{$lang->msg_no_result}</td></tr>
+			<tr cond="!$referer_status"><td colspan="3" style="text-align:center">{$lang->msg_no_result}</td></tr>
 			<!--@foreach($referer_status as $no => $val)-->
+			{@$member_info = $val->member_srl > 0 ? $oMemberModel->getMemberInfoByMemberSrl($val->member_srl) : NULL}
 			<tr class="row{$cycle_idx}">
 				<td class="number">{$rank}</td>
-				<td class="wide"><div style="text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;max-width:865px">
-<include target="ua_icons.html" />
-					<a href="{getUrl('act', 'dispRefererAdminIndex', 'uagent', $val->uagent)}" title="{$lang->view_selected_uagent}">{$val->uagent}</a>
-				</div></td>
+				<td class="wide">
+					{$oRefererClass->getUserStringFromMemberSrl($val->member_srl, getUrl('', 'module', $module, 'act', 'dispRefererAdminIndex', 'page', '1', 'search_target', 'user_id', 'search_keyword', $oRefererClass->getUserIDFromMemberSrl($val->member_srl)), $lang->search_user)}
+				</td>
 				<td class="number">{$val->cnt}</td>
-				<td class="center"><a href="{getUrl('act', 'dispRefererAdminDeleteUAgentStat', 'uagent', $val->uagent)}" title="{$lang->cmd_delete}" class="buttonSet buttonDelete">{$lang->cmd_delete}</a></td>
+				<td class="center"><a href="{getUrl('act', 'dispRefererAdminDeleteUserStat', 'member_srl', $val->member_srl)}" title="{$lang->cmd_delete}" class="buttonSet buttonDelete">{$lang->cmd_delete}</a></td>
 			</tr>
 		<!--{$rank += 1} -->
 			<!--@end-->

@@ -17,6 +17,12 @@ function completeDeleteStat(ret_obj) {
 	else if (called_from == 'uagent') {
     	url = current_url.setQuery('act','dispRefererAdminUAgentRanking').setQuery('module', 'admin').setQuery('uagent','');
     }
+	else if (called_from == 'user') {
+    	url = current_url.setQuery('act','dispRefererAdminUserRanking').setQuery('module', 'admin').setQuery('member_srl','');
+    }
+	else if (called_from == 'visiting_page') {
+    	url = current_url.setQuery('act','dispRefererAdminPageRanking').setQuery('module', 'admin').setQuery('ref_mid','','ref_document_srl','','called_from','');
+    }
 	else {
     	url = current_url.setQuery('act','dispRefererAdminIndex').setQuery('module', 'admin').setQuery('page','').setQuery('host','').setQuery('remote','').setQuery('uagent','');
     }

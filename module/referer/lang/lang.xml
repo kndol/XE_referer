@@ -121,16 +121,16 @@
 		<value xml:lang="vi"><![CDATA[Truy cập trực tiếp]]></value>
 	</item>
 	<item name="addon_setup">
-		<value xml:lang="ko"><![CDATA[리퍼러 애드온 설정]]></value>
-		<value xml:lang="en"><![CDATA[Referer Add-On Settings]]></value>
-		<value xml:lang="jp"><![CDATA[リファラはアドオンの設定]]></value>
-		<value xml:lang="zh-CN"><![CDATA[Referer的附加设置]]></value>
-		<value xml:lang="zh-TW"><![CDATA[Referer的附加設置]]></value>
-		<value xml:lang="fr"><![CDATA[Referer Add-On Paramètres]]></value>
+		<value xml:lang="ko"><![CDATA[애드온 설정]]></value>
+		<value xml:lang="en"><![CDATA[Add-On Settings]]></value>
+		<value xml:lang="jp"><![CDATA[アドオンの設定]]></value>
+		<value xml:lang="zh-CN"><![CDATA[附加设置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[附加設置]]></value>
+		<value xml:lang="fr"><![CDATA[Add-On Paramètres]]></value>
 		<value xml:lang="ru"><![CDATA[Обращения дополнения Настройки]]></value>
-		<value xml:lang="es"><![CDATA[Ajustes Referer Add-On]]></value>
-		<value xml:lang="tr"><![CDATA[Referans ekle-On Ayarları]]></value>
-		<value xml:lang="vi"><![CDATA[Referer Add-On chỉnh]]></value>
+		<value xml:lang="es"><![CDATA[Ajustes Add-On]]></value>
+		<value xml:lang="tr"><![CDATA[ekle-On Ayarları]]></value>
+		<value xml:lang="vi"><![CDATA[Add-On chỉnh]]></value>
 	</item>
 	<item name="IP_Tracing">
 		<value xml:lang="ko"><![CDATA[IP 정보 추적]]></value>
@@ -181,16 +181,16 @@
 		<value xml:lang="vi"><![CDATA[To see User Agent informations, copy a User Agent string and past it into http://useragentstring.com/.]]></value>
 	</item>
 	<item name="module_setup">
-		<value xml:lang="ko"><![CDATA[리퍼러 모듈 설정]]></value>
-		<value xml:lang="en"><![CDATA[Referer Module Settings]]></value>
-		<value xml:lang="jp"><![CDATA[リファラモジュールの設定]]></value>
-		<value xml:lang="zh-CN"><![CDATA[Referer的模块设置]]></value>
-		<value xml:lang="zh-TW"><![CDATA[Referer的模塊設置]]></value>
-		<value xml:lang="fr"><![CDATA[Paramètres du module de Referer]]></value>
-		<value xml:lang="ru"><![CDATA[Настройки модуля Обращения]]></value>
-		<value xml:lang="es"><![CDATA[Ajustes del módulo de Referer]]></value>
-		<value xml:lang="tr"><![CDATA[Referer Modül Ayarları]]></value>
-		<value xml:lang="vi"><![CDATA[Thiết lập Referer Mô-đun]]></value>
+		<value xml:lang="ko"><![CDATA[모듈 설정]]></value>
+		<value xml:lang="en"><![CDATA[Module Settings]]></value>
+		<value xml:lang="jp"><![CDATA[モジュールの設定]]></value>
+		<value xml:lang="zh-CN"><![CDATA[模块设置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[模塊設置]]></value>
+		<value xml:lang="fr"><![CDATA[Paramètres du module]]></value>
+		<value xml:lang="ru"><![CDATA[Настройки модуля]]></value>
+		<value xml:lang="es"><![CDATA[Ajustes del módulo]]></value>
+		<value xml:lang="tr"><![CDATA[Modül Ayarları]]></value>
+		<value xml:lang="vi"><![CDATA[TCài đặt mô-đun]]></value>
 	</item>
 	<item name="GeoIPSite">
 		<value xml:lang="ko">Geo IP 서버</value>
@@ -395,5 +395,125 @@
 		<value xml:lang="es"><![CDATA[Operating Systems]]></value>
 		<value xml:lang="tr"><![CDATA[Operating Systems]]></value>
 		<value xml:lang="vi"><![CDATA[Operating Systems]]></value>
+	</item>
+	<item name="detail_view">
+		<value xml:lang="ko"><![CDATA[상세보기]]></value>
+		<value xml:lang="en"><![CDATA[Detail View]]></value>
+		<value xml:lang="jp"><![CDATA[詳細を見る]]></value>
+		<value xml:lang="zh-CN"><![CDATA[了解更多]]></value>
+		<value xml:lang="zh-TW"><![CDATA[了解更多]]></value>
+		<value xml:lang="fr"><![CDATA[Vue détaillée]]></value>
+		<value xml:lang="ru"><![CDATA[Детальный просмотр]]></value>
+		<value xml:lang="es"><![CDATA[Vista de Detalles]]></value>
+		<value xml:lang="tr"><![CDATA[Detay Görünümü]]></value>
+		<value xml:lang="vi"><![CDATA[Xem chi tiết]]></value>
+	</item>
+	<item name="host">
+		<value xml:lang="ko"><![CDATA[호스트]]></value>
+		<value xml:lang="en"><![CDATA[Host]]></value>
+		<value xml:lang="jp"><![CDATA[ホスト]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Host]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Host]]></value>
+		<value xml:lang="fr"><![CDATA[Host]]></value>
+		<value xml:lang="ru"><![CDATA[Host]]></value>
+		<value xml:lang="es"><![CDATA[Host]]></value>
+		<value xml:lang="tr"><![CDATA[Host]]></value>
+		<value xml:lang="vi"><![CDATA[Host]]></value>
+	</item>
+	<item name="request_uri">
+		<value xml:lang="ko"><![CDATA[방문 페이지]]></value>
+		<value xml:lang="en"><![CDATA[Requested Page]]></value>
+		<value xml:lang="jp"><![CDATA[要求されたページ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请求的页面]]></value>
+		<value xml:lang="zh-TW"><![CDATA[請求的頁面]]></value>
+		<value xml:lang="fr"><![CDATA[Page Demandée]]></value>
+		<value xml:lang="ru"><![CDATA[Запрошенная страница]]></value>
+		<value xml:lang="es"><![CDATA[Página Solicitada]]></value>
+		<value xml:lang="tr"><![CDATA[Istenen Sayfa]]></value>
+		<value xml:lang="vi"><![CDATA[Trang yêu cầu]]></value>
+	</item>
+	<item name="not_logged_in">
+		<value xml:lang="ko"><![CDATA[로긴 안 함]]></value>
+		<value xml:lang="en"><![CDATA[Not Logged In]]></value>
+		<value xml:lang="jp"><![CDATA[ログインしない]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有登录]]></value>
+		<value xml:lang="zh-TW"><![CDATA[沒有登錄]]></value>
+		<value xml:lang="fr"><![CDATA[Non Connecté]]></value>
+		<value xml:lang="ru"><![CDATA[Вы не вошли]]></value>
+		<value xml:lang="es"><![CDATA[No Conectado]]></value>
+		<value xml:lang="tr"><![CDATA[Oturum açık değil]]></value>
+		<value xml:lang="vi"><![CDATA[Không đăng nhập]]></value>
+	</item>
+	<item name="search_user">
+		<value xml:lang="ko"><![CDATA[이 사용자의 리퍼러 기록만 보기]]></value>
+		<value xml:lang="en"><![CDATA[Show this user's referer data only]]></value>
+		<value xml:lang="jp"><![CDATA[このユーザーのリファラ記録のみを表示]]></value>
+		<value xml:lang="zh-CN"><![CDATA[显示此用户的查询源数据]]></value>
+		<value xml:lang="zh-TW"><![CDATA[顯示此用戶的查詢源數據]]></value>
+		<value xml:lang="fr"><![CDATA[Afficher les données referer de cet utilisateur seulement]]></value>
+		<value xml:lang="ru"><![CDATA[Показать только данные REFERER этого пользователя]]></value>
+		<value xml:lang="es"><![CDATA[Mostrar sólo datos referer de este usuario]]></value>
+		<value xml:lang="tr"><![CDATA[Bu kullanıcının refereri verilerini tek göster]]></value>
+		<value xml:lang="vi"><![CDATA[Chỉ hiển thị dữ liệu referer của thành viên này]]></value>
+	</item>
+	<item name="visitor">
+		<value xml:lang="ko"><![CDATA[방문자]]></value>
+		<value xml:lang="en"><![CDATA[Visitor]]></value>
+		<value xml:lang="jp"><![CDATA[訪問者]]></value>
+		<value xml:lang="zh-CN"><![CDATA[访客]]></value>
+		<value xml:lang="zh-TW"><![CDATA[訪客]]></value>
+		<value xml:lang="fr"><![CDATA[Visiteur]]></value>
+		<value xml:lang="ru"><![CDATA[посетителей]]></value>
+		<value xml:lang="es"><![CDATA[Visitantes]]></value>
+		<value xml:lang="tr"><![CDATA[Ziyaretçi]]></value>
+		<value xml:lang="vi"><![CDATA[Khách thăm]]></value>
+	</item>
+	<item name="user">
+		<value xml:lang="ko"><![CDATA[사용자]]></value>
+		<value xml:lang="en"><![CDATA[User]]></value>
+		<value xml:lang="jp"><![CDATA[ユーザー]]></value>
+		<value xml:lang="zh-CN"><![CDATA[用户]]></value>
+		<value xml:lang="zh-TW"><![CDATA[用戶]]></value>
+		<value xml:lang="fr"><![CDATA[Utilisateur]]></value>
+		<value xml:lang="ru"><![CDATA[Пользователь]]></value>
+		<value xml:lang="es"><![CDATA[Usuario]]></value>
+		<value xml:lang="tr"><![CDATA[Kullanıcı]]></value>
+		<value xml:lang="vi"><![CDATA[người sử dụng]]></value>
+	</item>
+	<item name="show_members_only">
+		<value xml:lang="ko"><![CDATA[회원 기록만]]></value>
+		<value xml:lang="en"><![CDATA[Only Members' Data]]></value>
+		<value xml:lang="jp"><![CDATA[会員のデータのみ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[会员只有数据]]></value>
+		<value xml:lang="zh-TW"><![CDATA[會員只有數據]]></value>
+		<value xml:lang="fr"><![CDATA[Seules les données du membre]]></value>
+		<value xml:lang="ru"><![CDATA[Только данные члена]]></value>
+		<value xml:lang="es"><![CDATA[Sólo los datos de los miembros]]></value>
+		<value xml:lang="tr"><![CDATA[Üyesi Sadece veri]]></value>
+		<value xml:lang="vi"><![CDATA[Chỉ có các dữ liệu của các thành viên]]></value>
+	</item>
+	<item name="visiting_page">
+		<value xml:lang="ko"><![CDATA[방문 페이지]]></value>
+		<value xml:lang="en"><![CDATA[Visiting Page]]></value>
+		<value xml:lang="jp"><![CDATA[アクセスしたページ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[访问页]]></value>
+		<value xml:lang="zh-TW"><![CDATA[訪問頁]]></value>
+		<value xml:lang="fr"><![CDATA[Visiter Page]]></value>
+		<value xml:lang="ru"><![CDATA[Посещение Page]]></value>
+		<value xml:lang="es"><![CDATA[Visitar Página]]></value>
+		<value xml:lang="tr"><![CDATA[Ziyaret Sayfa]]></value>
+		<value xml:lang="vi"><![CDATA[Thăm Trang]]></value>
+	</item>
+	<item name="view_selected_page">
+		<value xml:lang="ko"><![CDATA[이 페이지의 접근 기록만 봅니다.]]></value>
+		<value xml:lang="en"><![CDATA[View referer data of this page.]]></value>
+		<value xml:lang="jp"><![CDATA[このページのリファラ記録のみ表示されます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[只看该引用此页面的日志。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[只看該引用此頁面的日誌。]]></value>
+		<value xml:lang="fr"><![CDATA[Voir les referer données de cette page.]]></value>
+		<value xml:lang="ru"><![CDATA[Посмотреть реферер данные этой страницы.]]></value>
+		<value xml:lang="es"><![CDATA[Ver los referer datos de esta página.]]></value>
+		<value xml:lang="tr"><![CDATA[Bu sayfa görünümü refereri verileri.]]></value>
+		<value xml:lang="vi"><![CDATA[Xem referer dữ liệu của trang này.]]></value>
 	</item>
 </lang>

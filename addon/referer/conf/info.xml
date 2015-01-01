@@ -16,8 +16,8 @@
     <description xml:lang="es">Recofrr referer log y estadísticas.</description>
     <description xml:lang="ru">Собирает лог рефералов и статистику.</description>
     <description xml:lang="zh-TW">紀錄反向連結統計資料。</description>
-    <version>3.3.4</version>
-    <date>2014-09-12</date>
+    <version>3.4.0</version>
+    <date>2014-12-10</date>
 
     <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
         <name xml:lang="ko">큰돌</name>
@@ -127,14 +127,14 @@
 			<title xml:lang="jp">既知のボットのアクセス記録を除く</title>
 			<title xml:lang="zn-CN">排除已知的僵尸程序访问数据</title>
 			<title xml:lang="zn-TW">排除已知的殭屍程序訪問數據</title>
-			<description xml:lang="ko">이 선택은 아래 두 옵션보다 우선합니다.</description>
-			<description xml:lang="en">This selection takes precedence over the following two options.</description>
-			<description xml:lang="es">Esta selección tiene prioridad sobre las siguientes dos opciones.</description>
-			<description xml:lang="fr">Cette sélection a préséance sur les deux options suivantes.</description>
-			<description xml:lang="ru">Этот выбор имеет приоритет над следующими двумя вариантами.</description>
-			<description xml:lang="jp">この選択は、次の二つのオプションよりも優先されます。</description>
-			<description xml:lang="zn-CN">这种选择优先于以下两个选项。</description>
-			<description xml:lang="zn-TW">這種選擇優先於以下兩個選項。</description>
+			<description xml:lang="ko">알려진 검색 로봇 및 크로울러 등의 접근 기록을 제외합니다.</description>
+			<description xml:lang="en">Exclude access data of known bots and crawlers.</description>
+			<description xml:lang="es">Excluir los datos de acceso de los robots y rastreadores conocidos.</description>
+			<description xml:lang="fr">Exclure les données d' accès de robots connus.</description>
+			<description xml:lang="ru">Исключить данных известных ботов и роботов доступа.</description>
+			<description xml:lang="jp">既知のボットやクローラのアクセスデータを除外します。</description>
+			<description xml:lang="zn-CN">排除已知机器人和爬虫访问数据。</description>
+			<description xml:lang="zn-TW">排除已知機器人和爬蟲訪問數據。</description>
             <options value="no">
                 <title xml:lang="ko">아니요 (포함)</title>
                 <title xml:lang="en">No (Include)</title>
@@ -155,6 +155,44 @@
                 <title xml:lang="zn-CN">好 （不包括）</title>
                 <title xml:lang="zn-TW">好 （不包括）</title>
             </options>
+		</var>
+		<var name="treat_msie6_bot" type="select">
+			<title xml:lang="ko">MSIE 6을 봇으로 취급</title>
+			<title xml:lang="en">Treat MSIE 6 as a bot</title>
+			<title xml:lang="es">Treat MSIE 6 as a bot</title>
+			<title xml:lang="fr">Treat MSIE 6 as a bot</title>
+			<title xml:lang="ru">Treat MSIE 6 as a bot</title>
+			<title xml:lang="jp">Treat MSIE 6 as a botく</title>
+			<title xml:lang="zn-CN">Treat MSIE 6 as a bot</title>
+			<title xml:lang="zn-TW">Treat MSIE 6 as a bot據</title>
+			<description xml:lang="ko">중국산 봇에서 많이 사용하는 Microsoft Internet Explorer 6.x로 된 UserAgent를 봇으로 취급합니다.</description>
+			<description xml:lang="en">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="es">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="fr">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="ru">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="jp">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="zn-CN">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+			<description xml:lang="zn-TW">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+            <options value="yes">
+                <title xml:lang="ko">예 (사용)</title>
+                <title xml:lang="en">Yes (Use)</title>
+                <title xml:lang="es">Sí (Uso)</title>
+                <title xml:lang="fr">Oui (Utilisation)</title>
+                <title xml:lang="ru">Да (Использование)</title>
+                <title xml:lang="jp">はい (使用)</title>
+                <title xml:lang="zn-CN">好 (使用)</title>
+                <title xml:lang="zn-TW">好 (使用)</title>
+            </options>
+            <options value="no">
+                <title xml:lang="ko">아니요 (사용 안 함)</title>
+                <title xml:lang="en">No (Do not use)</title>
+                <title xml:lang="es">No (No utilice)</title>
+                <title xml:lang="fr">Non (Ne pas utiliser)</title>
+                <title xml:lang="ru">Нет (Не используйте)</title>
+                <title xml:lang="jp">いいえ (使用しない)</title>
+                <title xml:lang="zn-CN">否 (已禁用)</title>
+                <title xml:lang="zn-TW">否 (已禁用)</title>
+			</options>
 		</var>
 		<var name="exclude_uagent" type="text" default="">
 			<title xml:lang="ko">제외할 UserAgent</title>

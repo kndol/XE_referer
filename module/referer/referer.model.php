@@ -7,91 +7,116 @@
  **/
 
 class refererModel extends referer {
-    function init() {
-    }
+	function init() {
+	}
 
-    function isInsertedHost($host) {
-        $args->host = $host;
-        $output = executeQuery('referer.getHostStatus', $args);
-        return $output->data->count?true:false;
-    }
+	function isInsertedHost($host) {
+		$args->host = $host;
+		$output = executeQuery('referer.getHostStatus', $args);
+		return $output->data->count?true:false;
+	}
 
-    function isInsertedRemote($remote) {
-        $args->remote = $remote;
-        $output = executeQuery('referer.getRemoteStatus', $args);
-        return $output->data->count?true:false;
-    }
+	function isInsertedRemote($remote) {
+		$args->remote = $remote;
+		$output = executeQuery('referer.getRemoteStatus', $args);
+		return $output->data->count?true:false;
+	}
 
-    function isInsertedUAgent($uagent) {
+	function isInsertedUAgent($uagent) {
 		$args->uagent = $uagent;
 		$output = executeQuery('referer.getUAgentStatus', $args);
 		return $output->data->count?true:false;
-    }
+	}
+
+	function isInsertedUser($member_srl) {
+		$args->member_srl = $member_srl;
+		$output = executeQuery('referer.getUserStatus', $args);
+		return $output->data->count?true:false;
+	}
+
+	function isInsertedPage($ref_mid, $ref_document_srl) {
+		$args->ref_mid = $ref_mid;
+		$args->ref_document_srl = $ref_document_srl;
+		$output = executeQuery('referer.getPageStatus', $args);
+		return $output->data->count?true:false;
+	}
 
 	function getRecentRefererList()
 	{
-        $output = executeQuery('referer.getRecentRefererLog');
+		$output = executeQuery('referer.getRecentRefererLog');
 
-        // 결과가 없거나 오류 발생시 그냥 return
-        if(!$output->toBool()||!count($output->data)) return;
+		// 결과가 없거나 오류 발생시 그냥 return
+		if(!$output->toBool()||!count($output->data)) return;
 
-        return $output->data;
+		return $output->data;
 	}
 
-    function getLogList($obj) {
+	function getLogList($obj) {
 		if ($obj->host) {
 			$args->host = $obj->host;
-            $query_id = 'referer.getRefererLogListHost';
+			$query_id = 'referer.getRefererLogListHost';
 		}
 		else if ($obj->remote) {
 			$args->remote = $obj->remote;
-            $query_id = 'referer.getRefererLogListRemote';
+			$query_id = 'referer.getRefererLogListRemote';
 		}
 		else if ($obj->uagent) {
 			$args->uagent = $obj->uagent;
-            $query_id = 'referer.getRefererLogListUAgent';
+			$query_id = 'referer.getRefererLogListUAgent';
+		}
+		else if ($obj->ref_mid || $obj->ref_document_srl) {
+			$args->ref_mid = $obj->ref_mid;
+			$args->ref_document_srl = $obj->ref_document_srl;
+			$query_id = 'referer.getRefererLogListPage';
 		}
 		else {
-	        $query_id = 'referer.getRefererLogList';
-	        $search_target = Context::get('search_target');
-	        if ($search_target == "referer")        $args->search_referer = trim(Context::get('search_keyword'));
-	        else if ($search_target == "remote")    $args->search_remote  = trim(Context::get('search_keyword'));
-	        else if ($search_target == "uagent")    $args->search_uagent  = trim(Context::get('search_keyword'));
-			else if ($search_target == "date")      $args->search_date = preg_replace("/[^0-9]*/s", "", Context::get('search_keyword'));
-			else if ($search_target == "date_less") $args->search_date_less = preg_replace("/[^0-9]*/s", "", Context::get('search_keyword'));
-			else if ($search_target == "date_more") $args->search_date_more = preg_replace("/[^0-9]*/s", "", Context::get('search_keyword'));
+			$query_id = $obj->mode == 'members' ? 'referer.getRefererLogListMembers' : 'referer.getRefererLogList';
+			$search_target = $obj->search_target;
+			if(strpos($search_target, "date") !== false)
+				$args->{"search_".$search_target} = preg_replace("/[^0-9]*/s", "", $obj->search_keyword);
+			else
+				$args->{"search_".$search_target} = trim($obj->search_keyword);
 		}
 
-        $args->sort_index = 'regdate';
-        $args->page = $obj->page?$obj->page:1;
+		$args->sort_index = 'regdate';
+		$args->page = $obj->page?$obj->page:1;
 
-        $args->list_count = $obj->list_count?$obj->list_count:20;
-        $args->page_count = $obj->page_count?$obj->page_count:10;
+		$args->list_count = $obj->list_count?$obj->list_count:20;
+		$args->page_count = $obj->page_count?$obj->page_count:10;
 
-        $output = executeQueryArray($query_id, $args);
+		$output = executeQueryArray($query_id, $args);
 
-        return $output;
-    }
+		return $output;
+	}
 
-    function getRefererRanking($ranking_mode, $obj) {
-    	switch ($ranking_mode) {
-    		case 0:
-    			return executeQueryArray("referer.getRefererRanking", $obj);
-    			break;
-    		case 1:
-		        return executeQueryArray("referer.getRemoteRanking", $obj);
-    			break;
-    		case 2:
-		        return executeQueryArray("referer.getUAgentRanking", $obj);
-    			break;
-    		case 3:
-		        return executeQueryArray("referer.getUAgentStatistics", $obj);
-    			break;
-    	}
-    }
-    
+	function getRefererRanking($ranking_mode, $obj) {
+		switch ($ranking_mode) {
+			case _REFERER_RANKING_:
+				return executeQueryArray("referer.getRefererRanking", $obj);
+				break;
+			case _REFERER_RANKING_DETAIL_:
+				return executeQueryArray("referer.getRefererRankingDetail", $obj);
+				break;
+			case _REMOTE_RANKING_:
+				return executeQueryArray("referer.getRemoteRanking", $obj);
+				break;
+			case _USER_RANKING_:
+				return executeQueryArray("referer.getUserRanking", $obj);
+				break;
+			case _PAGE_RANKING_:
+				return executeQueryArray("referer.getPageRanking", $obj);
+				break;
+			case _UAGENT_RANKING_:
+				return executeQueryArray("referer.getUAgentRanking", $obj);
+				break;
+			case _UAGENT_STAT_:
+				return executeQueryArray("referer.getUAgentStatistics", $obj);
+				break;
+		}
+	}
+	
 	/**
-	 * @brief Return referer's configuration
+	 * @brief Return referer module's configuration
 	 */
 	function getRefererConfig()
 	{
@@ -108,6 +133,79 @@ class refererModel extends referer {
 		$refererConfig = $config;
 
 		return $config;
+	}
+	
+	/**
+	 * @brief Return referer add-on's configuration
+	 */
+	function getRefererAddonConfig()
+	{
+		static $refererAddonConfig;
+
+		if($refererAddonConfig) return $refererAddonConfig;
+
+		$oAddonAdminModel = getAdminModel('addon');
+		$addon_info = $oAddonAdminModel->getAddonInfoXml('referer');
+		$config = new stdClass();
+		foreach($addon_info->extra_vars as $var)
+		{
+			$config->{$var->name} = $var->value;
+		}
+
+		$refererAddonConfig = $config;
+
+		return $config;
+	}
+	
+	/**
+	 * @brief Return information of knwon bots
+	 */
+	function getRefererKnownBots()
+	{
+		static $KnownBots;
+
+		if ($KnownBots) return $KnownBots;
+		
+		$bots = array();
+		if (($handle = fopen($this->module_path."/Bots.csv", "r")) !== false) {
+			while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+				$num = count($data);
+				if ($num == 2) {
+					$bots[$data[0]] = $data[1];
+				}
+			}
+			fclose($handle);
+		}
+		
+		$KnownBots = $bots;
+
+		return $bots;
+	}
+	
+	function isBot($uagent, &$provider = "")
+	{
+		static $KnownBots;
+		
+		if (!$KnownBots) $KnownBots = $this->getRefererKnownBots();
+		
+		foreach ($KnownBots as $strBot => $strDesc) {
+			if ( stripos($uagent, $strBot) !== false ) {
+				$provider = $strDesc;
+				return true;
+			}
+		}
+		if ($this->getRefererAddonConfig()->treat_msie6_bot != no && strstr($uagent, 'MSIE 6.0') !== false ) {
+			$provider = "MSIE 6.0";
+			return true;
+		}
+		if ( strstr($uagent, 'SocialXE ClientBot') === false
+			&& (preg_match('/(bot|spider|crawler)/i',$uagent)
+			|| strstr($uagent, 'MSIE or Firefox mutant; not on Windows server;') !== false) )
+		{
+			$provider = "Others";
+			return true;
+		}
+		return false;
 	}
 }
 /* End of file referer.controller.php */
