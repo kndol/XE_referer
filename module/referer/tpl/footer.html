@@ -45,18 +45,18 @@ jQuery(function($){
 				$('#'+id).attr('title', location.country + ' (' + location.city + ', ' + location.region_name + ')');
 			});
 		})
-<!--@elseif($refererConfig->GeoIPSite == "freegeoip")-->
-		$.getJSON('http://freegeoip.net/json/'+ip, function(location) {
-			$.each(arrID, function(i, id) {
-				$('#'+id).addClass(location.country_code);
-				$('#'+id).attr('title', location.country_name + ' (' + location.city + ', ' + location.region_name + ')');
-			});
-		})
-<!--@else-->
+<!--@elseif($refererConfig->GeoIPSite == "telize")-->
 		$.getJSON('http://www.telize.com/geoip/'+ip+'?callback=?', function(location) {
 			$.each(arrID, function(i, id) {
 				$('#'+id).addClass(location.country_code);
 				$('#'+id).attr('title', location.country + ' (' + location.city + ', ' + location.region + ')');
+			});
+		})
+<!--@else-->
+		$.getJSON('http://freegeoip.net/json/'+ip, function(location) {
+			$.each(arrID, function(i, id) {
+				$('#'+id).addClass(location.country_code);
+				$('#'+id).attr('title', location.country_name + ' (' + location.city + ', ' + location.region_name + ')');
 			});
 		})
 <!--@end-->

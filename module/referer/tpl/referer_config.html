@@ -10,16 +10,16 @@
 	<div class="x_control-group">
 		<div class="x_control-label">{$lang->GeoIPSite}</div>
 		<div class="x_controls">
-			<label class="x_inline" for="telize"><input type="radio" name="GeoIPSite" id="telize" value="telize" checked="checked"|cond="$refererConfig->GeoIPSite=='telize'||$refererConfig->GeoIPSite==''" /> telize.com</label>
-			<label class="x_inline" for="petabyet"><input type="radio" name="GeoIPSite" id="petabyet" value="petabyet" checked="checked"|cond="$refererConfig->GeoIPSite=='petabyet'" /> petabyet.com</label>
-			<label class="x_inline" for="freegeoip"><input type="radio" name="GeoIPSite" id="freegeoip" value="freegeoip" checked="checked"|cond="$refererConfig->GeoIPSite=='freegeoip'" /> freegeoip.net</label>
+			<label class="x_inline" for="freegeoip"><input type="radio" name="GeoIPSite" id="freegeoip" value="freegeoip" checked="checked"|cond="$refererConfig->GeoIPSite=='freegeoip'||$refererConfig->GeoIPSite==''" /> freegeoip.net</label>
 			<label class="x_inline" for="smartip"><input type="radio" name="GeoIPSite" id="smartip" value="smartip" checked="checked"|cond="$refererConfig->GeoIPSite=='smartip'" /> smart-ip.net</label>
+			<label class="x_inline" for="telize"><input type="radio" name="GeoIPSite" id="telize" value="telize" checked="checked"|cond="$refererConfig->GeoIPSite=='telize'" /> telize.com</label>
+			<label class="x_inline" for="petabyet"><input type="radio" name="GeoIPSite" id="petabyet" value="petabyet" checked="checked"|cond="$refererConfig->GeoIPSite=='petabyet'" /> petabyet.com</label>
 			<p class="x_help-block">{$lang->about_GeoIPSite}<br /><br />
 				Powered by
-				<a href="http://www.telize.com" target="_blank">telize.com</a>, 
-				<a href="http://www.petabyet.com" target="_blank">petabyet.com</a>.
 				<a href="http://freegeoip.net" target="_blank">freegeoip.net</a>,
 				<a href="http://smart-ip.net" target="_blank">smart-ip.net</a>,
+				<a href="http://www.telize.com" target="_blank">telize.com</a>, 
+				<a href="http://www.petabyet.com" target="_blank">petabyet.com</a>.
 			</p>
 		</div>
 	</div>
