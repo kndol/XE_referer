@@ -516,4 +516,16 @@
 		<value xml:lang="tr"><![CDATA[Bu sayfa görünümü refereri verileri.]]></value>
 		<value xml:lang="vi"><![CDATA[Xem referer dữ liệu của trang này.]]></value>
 	</item>
+	<item name="auto_sel">
+		<value xml:lang="ko"><![CDATA[자동 선택]]></value>
+		<value xml:lang="en"><![CDATA[Automatic Selection]]></value>
+		<value xml:lang="jp"><![CDATA[自動選択]]></value>
+		<value xml:lang="zh-CN"><![CDATA[自动选择]]></value>
+		<value xml:lang="zh-TW"><![CDATA[自動選擇]]></value>
+		<value xml:lang="fr"><![CDATA[Sélection Automatique]]></value>
+		<value xml:lang="ru"><![CDATA[Автоматический выбор]]></value>
+		<value xml:lang="es"><![CDATA[Selección Automática]]></value>
+		<value xml:lang="tr"><![CDATA[Otomatik Seçim]]></value>
+		<value xml:lang="vi"><![CDATA[Lựa chọn tự động]]></value>
+	</item>
 </lang>

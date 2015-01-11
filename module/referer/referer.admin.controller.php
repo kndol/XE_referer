@@ -108,7 +108,7 @@ class refererAdminController extends referer {
 			'GeoIPSite'
 		);
 
-		if ($args->GeoIPSite == '') $args->GeoIPSite = 'freegeoip';
+		if ($args->GeoIPSite == '') $args->GeoIPSite = 'auto';
 		
 		$oModuleController = getController('module');
 		$output = $oModuleController->updateModuleConfig('referer', $args);

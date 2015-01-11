@@ -56,7 +56,7 @@ jQuery(function($){
 			<!--@else-->
 			{@$url=urldecode($val->url)}
 				<div style="text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;max-width:575px">
-					<span id="URL_{$no}" class="flag" ip="{$val->host}"></span><a href="{$val->url}" title="{$val->url}" target="_blank"><!--@if(iconv("utf-8", "utf-8", $url) == $url)-->{$url}<!--@else-->{iconv("EUC-KR", "UTF-8", $url)}<!--@end--></a>
+					<span id="URL_{$no}" class="flag" domain="{$val->host}"></span><a href="{$val->url}" title="{$val->url}" target="_blank"><!--@if(iconv("utf-8", "utf-8", $url) == $url)-->{$url}<!--@else-->{iconv("EUC-KR", "UTF-8", $url)}<!--@end--></a>
 				</div>
 			<!--@end-->
 				<div class="rf_more" style="display:none">
@@ -87,3 +87,8 @@ jQuery(function($){
 	</form>
 </div>
 <include target="footer.html" />
+<include target="geoip_auto.html" cond="($refererConfig->GeoIPSite == 'auto' || $refererConfig->GeoIPSite == '')" />
+<include target="geoip_freegeoip.html" cond="($refererConfig->GeoIPSite == 'freegeoip')" />
+<include target="geoip_smartip.html" cond="($refererConfig->GeoIPSite == 'smartip')" />
+<include target="geoip_telize.html" cond="($refererConfig->GeoIPSite == 'telize')" />
+<include target="geoip_petabyet.html" cond="($refererConfig->GeoIPSite == 'petabyet')" />

@@ -82,7 +82,7 @@ table.rowTable td.URL{letter-spacing:-1px; !important}
 .ua_icon.rss{background-position:0 -288px}
 .ua_icon.netscape{background-position:0 -304px}
 
-.flag{display:inline-block;height:11px;width:16px;vertical-align:text-top;margin:2px 6px 0 3px;line-height:11px;background:url(../img/flags.png) no-repeat}
+.flag{display:none;height:11px;width:16px;vertical-align:text-top;margin:2px 6px 0 3px;line-height:11px;background:url(../img/flags.png) no-repeat}
 .flag.AW{background-position:0 -14px}
 .flag.AF{background-position:0 -28px}
 .flag.AO{background-position:0 -42px}

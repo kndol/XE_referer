@@ -40,3 +40,8 @@
 	</form>
 </div>
 <include target="footer.html" />
+<include target="geoip_auto.html" cond="($refererConfig->GeoIPSite == 'auto' || $refererConfig->GeoIPSite == '')" />
+<include target="geoip_freegeoip.html" cond="($refererConfig->GeoIPSite == 'freegeoip')" />
+<include target="geoip_smartip.html" cond="($refererConfig->GeoIPSite == 'smartip')" />
+<include target="geoip_telize.html" cond="($refererConfig->GeoIPSite == 'telize')" />
+<include target="geoip_petabyet.html" cond="($refererConfig->GeoIPSite == 'petabyet')" />

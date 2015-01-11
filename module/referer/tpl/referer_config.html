@@ -10,7 +10,8 @@
 	<div class="x_control-group">
 		<div class="x_control-label">{$lang->GeoIPSite}</div>
 		<div class="x_controls">
-			<label class="x_inline" for="freegeoip"><input type="radio" name="GeoIPSite" id="freegeoip" value="freegeoip" checked="checked"|cond="$refererConfig->GeoIPSite=='freegeoip'||$refererConfig->GeoIPSite==''" /> freegeoip.net</label>
+			<label class="x_inline" for="auto"><input type="radio" name="GeoIPSite" id="auto" value="auto" checked="checked"|cond="$refererConfig->GeoIPSite=='auto'||$refererConfig->GeoIPSite==''" /> {$lang->auto_sel}</label>
+			<label class="x_inline" for="freegeoip"><input type="radio" name="GeoIPSite" id="freegeoip" value="freegeoip" checked="checked"|cond="$refererConfig->GeoIPSite=='freegeoip'" /> freegeoip.net</label>
 			<label class="x_inline" for="smartip"><input type="radio" name="GeoIPSite" id="smartip" value="smartip" checked="checked"|cond="$refererConfig->GeoIPSite=='smartip'" /> smart-ip.net</label>
 			<label class="x_inline" for="telize"><input type="radio" name="GeoIPSite" id="telize" value="telize" checked="checked"|cond="$refererConfig->GeoIPSite=='telize'" /> telize.com</label>
 			<label class="x_inline" for="petabyet"><input type="radio" name="GeoIPSite" id="petabyet" value="petabyet" checked="checked"|cond="$refererConfig->GeoIPSite=='petabyet'" /> petabyet.com</label>
