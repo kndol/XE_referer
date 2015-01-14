@@ -16,8 +16,8 @@
     <description xml:lang="es">Recofrr referer log y estadísticas.</description>
     <description xml:lang="ru">Собирает лог рефералов и статистику.</description>
     <description xml:lang="zh-TW">紀錄反向連結統計資料。</description>
-    <version>3.4.0</version>
-    <date>2014-12-10</date>
+    <version>3.4.1</version>
+    <date>2014-01-14</date>
 
     <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
         <name xml:lang="ko">큰돌</name>
@@ -173,6 +173,44 @@
 			<description xml:lang="jp">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
 			<description xml:lang="zn-CN">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
 			<description xml:lang="zn-TW">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+            <options value="yes">
+                <title xml:lang="ko">예 (사용)</title>
+                <title xml:lang="en">Yes (Use)</title>
+                <title xml:lang="es">Sí (Uso)</title>
+                <title xml:lang="fr">Oui (Utilisation)</title>
+                <title xml:lang="ru">Да (Использование)</title>
+                <title xml:lang="jp">はい (使用)</title>
+                <title xml:lang="zn-CN">好 (使用)</title>
+                <title xml:lang="zn-TW">好 (使用)</title>
+            </options>
+            <options value="no">
+                <title xml:lang="ko">아니요 (사용 안 함)</title>
+                <title xml:lang="en">No (Do not use)</title>
+                <title xml:lang="es">No (No utilice)</title>
+                <title xml:lang="fr">Non (Ne pas utiliser)</title>
+                <title xml:lang="ru">Нет (Не используйте)</title>
+                <title xml:lang="jp">いいえ (使用しない)</title>
+                <title xml:lang="zn-CN">否 (已禁用)</title>
+                <title xml:lang="zn-TW">否 (已禁用)</title>
+			</options>
+		</var>
+		<var name="treat_moz5_bot" type="select">
+			<title xml:lang="ko">Mozilla/5.0을 봇으로 취급</title>
+			<title xml:lang="en">Treat Mozilla/5.0 as a bot</title>
+			<title xml:lang="es">Treat Mozilla/5.0 as a bot</title>
+			<title xml:lang="fr">Treat Mozilla/5.0 as a bot</title>
+			<title xml:lang="ru">Treat Mozilla/5.0 as a bot</title>
+			<title xml:lang="jp">Treat Mozilla/5.0 as a botく</title>
+			<title xml:lang="zn-CN">Treat Mozilla/5.0 as a bot</title>
+			<title xml:lang="zn-TW">Treat Mozilla/5.0 as a bot據</title>
+			<description xml:lang="ko">다음 봇에서 사용하는 'Mozilla/5.0'로만 된 UserAgent를 봇으로 취급합니다.</description>
+			<description xml:lang="en">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="es">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="fr">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="ru">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="jp">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="zn-CN">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
+			<description xml:lang="zn-TW">Treat a UserAgent with 'Mozilla/5.0' only as a bot. (Used by Daum bot)</description>
             <options value="yes">
                 <title xml:lang="ko">예 (사용)</title>
                 <title xml:lang="en">Yes (Use)</title>

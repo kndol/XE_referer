@@ -22,7 +22,7 @@
 			<tr class="row{$cycle_idx}">
 				<td class="number">{$rank}</td>
 				<td class="wide"><div style="text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;max-width:865px">
-					<span id="{$no}" class="flag" ip="{$val->remote}"></span><a href="{getUrl('act', 'dispRefererAdminIndex', 'remote', $val->remote)}" title="{$lang->view_selected_remote}">{$val->remote}</a>
+					<span id="{$no}" class="flag mobile-portrait-hidden" ip="{$val->remote}"></span><a href="{getUrl('act', 'dispRefererAdminIndex', 'remote', $val->remote)}" title="{$lang->view_selected_remote}">{$val->remote}</a>
 					<a href="http://myip.ms/info/whois/{$val->remote}" title="{$lang->IP_Tracing}" target="_blank">&nbsp;</a>
 				</div></td>
 				<td class="number">{$val->cnt}</td>

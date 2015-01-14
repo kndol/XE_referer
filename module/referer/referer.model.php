@@ -194,8 +194,12 @@ class refererModel extends referer {
 				return true;
 			}
 		}
-		if ($this->getRefererAddonConfig()->treat_msie6_bot != no && strstr($uagent, 'MSIE 6.0') !== false ) {
+		if ( $this->getRefererAddonConfig()->treat_msie6_bot != no && strstr($uagent, 'MSIE 6.0') !== false ) {
 			$provider = "MSIE 6.0";
+			return true;
+		}
+		if ( $this->getRefererAddonConfig()->treat_moz5_bot != no && $uagent == 'Mozilla/5.0' ) {
+			$provider = "Mozilla/5.0";
 			return true;
 		}
 		if ( strstr($uagent, 'SocialXE ClientBot') === false

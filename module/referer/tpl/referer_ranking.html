@@ -24,7 +24,7 @@
 			<tr class="row{$cycle_idx}">
 				<td class="number">{$rank}</td>
 				<td class="wide"><div style="text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;max-width:795px">
-					<span id="{$no}" class="flag" domain="{$val->host}"></span><a href="{getUrl('act', 'dispRefererAdminIndex', 'host', $val->host)}" title="{$lang->view_selected_host}">{$val->host}</a>
+					<span id="{$no}" class="flag mobile-portrait-hidden" domain="{$val->host}"></span><a href="{getUrl('act', 'dispRefererAdminIndex', 'host', $val->host)}" title="{$lang->view_selected_host}">{$val->host}</a>
 				<!--@if(filter_var($val->host, FILTER_VALIDATE_IP))-->
 					<a href="http://myip.ms/info/whois/{$val->host}" title="{$lang->IP_Tracing}" target="_blank">&nbsp;</a>
 				<!--@else-->
