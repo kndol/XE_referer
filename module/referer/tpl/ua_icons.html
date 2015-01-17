@@ -19,5 +19,5 @@
 					<span class="ua_icon zum" title="Zum" cond="preg_match('/(zumbot)/i',$val->uagent)"></span>
 					<span class="ua_icon rss" title="RSS Reader" cond="preg_match('/(feedfetcher|FeedDemon|NewsGatorOnline)/i',$val->uagent)"></span>
 					<span class="ua_icon bot" title="Bot" cond="$isBot"></span>
-					<span class="ua_icon others" title="Others" cond="!$isBot && !preg_match('/(Safari|Chrome|Firefox|Minefield|Opera|Netscape|MSIE|rv:11|Facebook|iPhone|Samsung|lgtel|mobile|google|bing|msn|Apple-PubSub|Avant|feedfetcher|FeedDemon|NewsGatorOnline)/i',$val->uagent) && !(preg_match('/Mozilla/i',$val->uagent) && preg_match('/Nav/i',$val->uagent))"></span>
+					<span class="ua_icon others" title="Others" cond="!$isBot && !preg_match('/(Safari|Chrome|Firefox|Minefield|Opera|Netscape|MSIE|rv:11|Facebook|iPhone|Samsung|lgtel|mobile|google|bing|msn|Apple-PubSub|Avant|feedfetcher|FeedDemon|NewsGatorOnline|SocialXE)/i',$val->uagent) && !(preg_match('/Mozilla/i',$val->uagent) && preg_match('/Nav/i',$val->uagent))"></span>
 					<span class="ua_icon mobile" title="Mobile" cond="preg_match('/(iPhone|iPad|iPod|Samsung|lgtel|mobile|android)/i',$val->uagent)"></span>
