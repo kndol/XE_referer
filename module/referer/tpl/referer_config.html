@@ -1,4 +1,10 @@
 <include target="header.html" />
+<script>
+function digit_check(evt){
+	var code = evt.which?evt.which:event.keyCode;
+	if(code < 48 || code > 57) return false;
+}
+</script>
 {$config->GeoIPSite}
 <section class="section">
 <h1>{$lang->module_setup}</h1>
@@ -22,6 +28,13 @@
 				<a href="http://www.telize.com" target="_blank">telize.com</a>, 
 				<a href="http://www.petabyet.com" target="_blank">petabyet.com</a>.
 			</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<div class="x_control-label">{$lang->timeout_label}</div>
+		<div class="x_controls">
+			<label class="x_inline" for="timeout"><input type="number" name="timeout" id="timeout" value="{$refererConfig->timeout}" onkeypress="return digit_check(event)" style="-ms-ime-mode:disabled;ime-mode:disabled;text-align:right; padding-right:1px" /> ms</label>
+			<span class="x_help-block">{$lang->timeout_help}</span>
 		</div>
 	</div>
 	<div class="btnArea x_clearfix">

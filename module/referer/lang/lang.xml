@@ -528,4 +528,28 @@
 		<value xml:lang="tr"><![CDATA[Otomatik Seçim]]></value>
 		<value xml:lang="vi"><![CDATA[Lựa chọn tự động]]></value>
 	</item>
+	<item name="timeout_label">
+		<value xml:lang="ko"><![CDATA[원격 쿼리 제한 시간]]></value>
+		<value xml:lang="en"><![CDATA[Remote Query Timeout]]></value>
+		<value xml:lang="jp"><![CDATA[リモートクエリのタイムアウト]]></value>
+		<value xml:lang="zh-CN"><![CDATA[遠程查詢超時]]></value>
+		<value xml:lang="zh-TW"><![CDATA[远程查询超时]]></value>
+		<value xml:lang="fr"><![CDATA[Délai de Requête à Distance]]></value>
+		<value xml:lang="ru"><![CDATA[Удаленная Тайм-аут запроса]]></value>
+		<value xml:lang="es"><![CDATA[Tiempo de Espera de Consulta Remota]]></value>
+		<value xml:lang="tr"><![CDATA[Uzaktan Sorgu Zaman Aşımı]]></value>
+		<value xml:lang="vi"><![CDATA[Từ xa truy vấn thời gian chờ]]></value>
+	</item>
+	<item name="timeout_help">
+		<value xml:lang="ko"><![CDATA[자동 선택을 사용할 때 서버가 응답하지 않는 것으로 처리할 시간을 지정합니다.<br/>사용 중인 서버와 Geo IP 서버 사이의 속도에 따라 적절한 값을 지정하세요.<br/>시간이 너무 짧으면 제대로 국기 정보를 받아오지 못할 수 있습니다. 반대로 시간이 너무 길면 페이지 이동 시에 경고가 발생할 수 있습니다.<br/>기본값: 5000ms(5초)]]></value>
+		<value xml:lang="en"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="jp"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="fr"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="ru"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="es"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="tr"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+		<value xml:lang="vi"><![CDATA[Specify the server timeout time when using the automatic selection. Default: 5000ms(5 seconds)]]></value>
+	</item>
 </lang>

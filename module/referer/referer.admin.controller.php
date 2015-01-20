@@ -105,10 +105,12 @@ class refererAdminController extends referer {
 	public function procRefererAdminInsertConfig()
 	{
 		$args = Context::gets(
-			'GeoIPSite'
+			'GeoIPSite', 'timeout'
 		);
 
 		if ($args->GeoIPSite == '') $args->GeoIPSite = 'auto';
+		$args->timeout = (int)$args->timeout;
+		if ($args->timeout<1) $args->timeout = 5000;
 		
 		$oModuleController = getController('module');
 		$output = $oModuleController->updateModuleConfig('referer', $args);

@@ -4,5 +4,6 @@
     </customrules>
     <fields>
 		<field name="GeoIPSite" required="true" />
+		<field name="timeout" required="true" />
     </fields>
 </ruleset>

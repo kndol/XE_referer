@@ -108,29 +108,29 @@ class refererController extends referer {
 	function insertRefererLog($remote, $host, $url, $uagent, $member_srl, $request_uri, $ref_mid, $ref_document_srl)
 	{
 	    $recent = &getModel('referer')->getRecentRefererList();
-	    if((($url != "http://localhost" && $recent->url == $url) || ($url == "http://localhost" && $recent->host == $host))
-	    	&& $recent->uagent == $uagent && $recent->member_srl == $member_srl && $recent->request_uri == $request_uri)
+	    if($recent->remote == $remote && $recent->url == $url && $recent->uagent == $uagent && $recent->member_srl == $member_srl && $recent->request_uri == $request_uri)
 	    {
-		    $args->regdate_last		= date("YmdHis");
-	    	$args->regdate			= $recent->regdate;
+	    	$args->remote			= $recent->remote;
 	    	$args->url				= $recent->url;
 	    	$args->uagent			= $recent->uagent;
 	    	$args->member_srl		= $recent->member_srl;
 	    	$args->request_uri		= $recent->request_uri;
+	    	$args->regdate			= $recent->regdate;
+		    $args->regdate_last		= date("YmdHis");
 
 		    return executeQuery('referer.updateRefererLog', $args);
 	    }
 		else
 		{
-		    $args->regdate = $args->regdate_last = date("YmdHis");
-		    $args->remote			= $remote;
 		    $args->host				= $host;
+		    $args->remote			= $remote;
 		    $args->url				= $url;
 		    $args->uagent			= $uagent;
 	    	$args->member_srl		= $member_srl;
 	    	$args->request_uri		= $request_uri;
 			$args->ref_mid 			= $ref_mid;
 			$args->ref_document_srl	= $ref_document_srl;
+		    $args->regdate 			= $args->regdate_last = date("YmdHis");
 
 		    return executeQuery('referer.insertRefererLog', $args);
 	    }

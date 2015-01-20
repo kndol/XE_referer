@@ -1,7 +1,7 @@
 <table name="referer_log">
     <column name="idx" type="number" size="11" notnull="notnull" primary_key="primary_key" auto_increment="auto_increment" />
-    <column name="host" type="varchar" size="64" notnull="notnull" unique="unique_referer_log" /> 
-    <column name="remote" type="varchar" size="16" notnull="notnull" /> 
+    <column name="host" type="varchar" size="64" /> 
+    <column name="remote" type="varchar" size="16" notnull="notnull" unique="unique_referer_log" /> 
     <column name="url" type="varchar" size="250" /> 
     <column name="uagent" type="varchar" size="250" notnull="notnull" unique="unique_referer_log" /> 
     <column name="member_srl" type="number" size="11" notnull="notnull" />

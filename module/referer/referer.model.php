@@ -129,6 +129,8 @@ class refererModel extends referer {
 		$config = $oModuleModel->getModuleConfig('referer');
 
 		if(!$config->GeoIPSite) $config->GeoIPSite = 'freegeoip';
+		$config->timeout = (int)$config->timeout;
+		if($config->timeout<1) $config->timeout = 5000;
 
 		$refererConfig = $config;
 
@@ -194,11 +196,11 @@ class refererModel extends referer {
 				return true;
 			}
 		}
-		if ( $this->getRefererAddonConfig()->treat_msie6_bot != no && strstr($uagent, 'MSIE 6.0') !== false ) {
+		if ($this->getRefererAddonConfig()->treat_msie6_bot != no && strstr($uagent, 'MSIE 6.0') !== false ) {
 			$provider = "MSIE 6.0";
 			return true;
 		}
-		if ( $this->getRefererAddonConfig()->treat_moz5_bot != no && $uagent == 'Mozilla/5.0' ) {
+		if ($this->getRefererAddonConfig()->treat_moz5_bot != no && $uagent == 'Mozilla/5.0' ) {
 			$provider = "Mozilla/5.0";
 			return true;
 		}

@@ -1,5 +1,6 @@
 <div id="loading"></div>
 <input id="GeoIPSite" type="hidden" value="auto"/>
+<input id="done" type="hidden" value="0"/>
 <script type="text/javascript">// <![CDATA[
 jQuery(function($){
 	var oFlagIP = new Object();
@@ -11,10 +12,13 @@ jQuery(function($){
 	}
 	var target = document.getElementById('loading');
 	var spinner = new Spinner(opts);
+	var spinner1 = new Spinner(opts);
 	var done = 0;
 	var totalIP = 0;
 	var totalDomain = 0;
-
+	var xhr1 = xhr2 = xhr3 = xhr4 = null;
+	var timer1 = null;
+	
 	$('.flag').each(function() {
 		if (typeof $(this).attr('ip') != 'undefined') {
 			if(oFlagIP[$(this).attr('ip')] === undefined) {
@@ -100,7 +104,10 @@ jQuery(function($){
 						});
 					})
 					.always(function() {
-						if(++done >= totalIP) spinner.stop();
+						if(++done >= totalIP) {
+							spinner.stop();
+							oFlagIP = new Object();
+						}
 					});
 				});
 
@@ -115,38 +122,81 @@ jQuery(function($){
 						});
 					})
 					.always(function() {
-						if(++done >= totalIP) spinner.stop();
+						if(++done >= totalIP) {
+							spinner.stop();
+							oFlagIP = new Object();
+						}
 					});
 				});
 			}
 		}
 		
-		$.getJSON('http://freegeoip.net/json/168.126.63.1', function(location) {
-			if (location.country_code != "" && $("#GeoIPSite").val() == "auto") {
+		spinner1.spin(target);
+		xhr1 = $.getJSON('http://freegeoip.net/json/168.126.63.1', function(location) {
+			if (location.country_code != "" && $("#GeoIPSite").val() != "smartip") {
 				$("#GeoIPSite").val("freegeoip");
 				getGeoIP();
 			}
+		})
+		.done(function() {
+			if(xhr2 != null) { xhr2.abort(); xhr2 = null; }
+			if(xhr3 != null) { xhr3.abort(); xhr3 = null; }
+			if(xhr4 != null) { xhr4.abort(); xhr4 = null; }
+			spinner1.stop();
+			if (timer1) { clearTimeout(timer1); timer1 = null; }
 		});
-		$.getJSON('http://smart-ip.net/geoip-json/168.126.63.1?callback=?', function(location) {
-			if (location.countryCode != "" && $("#GeoIPSite").val() == "auto") {
+		xhr2 = $.getJSON('http://smart-ip.net/geoip-json/168.126.63.1?callback=?', function(location) {
+			if (location.countryCode != "" && $("#GeoIPSite").val() != "freegeoip") {
 				$("#GeoIPSite").val("smartip");
 				getGeoIP();
 			}
+		})
+		.done(function() {
+			if(xhr1 != null) { xhr1.abort(); xhr1 = null; }
+			if(xhr3 != null) { xhr3.abort(); xhr3 = null; }
+			if(xhr4 != null) { xhr4.abort(); xhr4 = null; }
+			spinner1.stop();
+			if (timer1) { clearTimeout(timer1); timer1 = null; }
 		});
-		if(Object.keys(oFlagIP).length>0) {
-			$.getJSON('http://www.telize.com/geoip/168.126.63.1?callback=?', function(location) {
+		if(totalIP>0) {
+			xhr3 = $.getJSON('http://www.telize.com/geoip/168.126.63.1?callback=?', function(location) {
 				if (location.country_code != "" && $("#GeoIPSite").val() == "auto") {
 					$("#GeoIPSite").val("telize");
 					getGeoIP();
 				}
+			})
+			.done(function() {
+				if (!totalDomain) {
+					if(xhr1 != null) { xhr1.abort(); xhr1 = null; }
+					if(xhr2 != null) { xhr2.abort(); xhr2 = null; }
+					if (timer1) { clearTimeout(timer1); timer1 = null; }
+				}
+				if(xhr4 != null) { xhr4.abort(); xhr4 = null; }
+				spinner1.stop();
 			});
-			$.getJSON('http://api.petabyet.com/geoip/168.126.63.1?callback=?', function(location) {
+			xhr4 = $.getJSON('http://api.petabyet.com/geoip/168.126.63.1?callback=?', function(location) {
 				if (location.country_code != "" && $("#GeoIPSite").val() == "auto") {
 					$("#GeoIPSite").val("petabyet");
 					getGeoIP();
 				}
+			})
+			.done(function() {
+				if (!totalDomain) {
+					if(xhr1 != null) { xhr1.abort(); xhr1 = null; }
+					if(xhr2 != null) { xhr2.abort(); xhr2 = null; }
+					if (timer1) { clearTimeout(timer1); timer1 = null; }
+				}
+				if(xhr3 != null) { xhr3.abort(); xhr3 = null; }
+				spinner1.stop();
 			});
 		}
+		timer1 = setTimeout(function(){
+			if(xhr1 != null) { xhr1.abort(); xhr1 = null; }
+			if(xhr2 != null) { xhr2.abort(); xhr2 = null; }
+			if(xhr3 != null) { xhr3.abort(); xhr3 = null; }
+			if(xhr4 != null) { xhr4.abort(); xhr4 = null; }
+			spinner1.stop();
+		}, {$refererConfig->timeout});
 	}
 });
 
