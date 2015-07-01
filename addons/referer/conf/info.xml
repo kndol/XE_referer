@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">리퍼러 수집기</title>
+    <title xml:lang="en">Referer Collector</title>
+    <description xml:lang="ko">Referer log를 수집합니다. 원작 : haneul</description>
+    <description xml:lang="en">Collect referer log and statistics.</description>
+    <version>3.5.0</version>
+    <date>2014-02-14</date>
+
+    <author email_address="kndol@kndol.net" link="http://www.kndol.net/">
+        <name xml:lang="ko">큰돌</name>
+        <name xml:lang="en">KnDol</name>
+    </author>
+
+    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
+        <name xml:lang="ko">윈컴이</name>
+        <name xml:lang="en">Wincomi</name>
+    </author>
+    
+	<extra_vars>
+		<var name="admin" type="select">
+			<title xml:lang="ko">최고관리자</title>
+			<title xml:lang="en">Administrator</title>
+			<description xml:lang="ko">최고관리자도 포함하시겠습니까?</description>
+			<description xml:lang="en">Do you want to include the referer of admin's connection?</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함 안함)</title>
+                <title xml:lang="en">No (Not Include)</title>
+            </options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함)</title>
+                <title xml:lang="en">Yes (Include)</title>
+            </options>
+		</var>
+		<var name="include_direct_access" type="select">
+			<title xml:lang="ko">바로 접속</title>
+			<title xml:lang="en">Direct Access</title>
+			<description xml:lang="ko">바로 접속한 정보도 포함하시겠습니까? (주소창에 주소를 직접 적었거나 즐겨찾기로 접속)</description>
+			<description xml:lang="en">Do you want to include direct access informations? (In case of direct access via address bar or bookmark)</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함 안함)</title>
+                <title xml:lang="en">No (Not Include)</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함)</title>
+                <title xml:lang="en">Yes (Include)</title>
+            </options>
+		</var>
+		<var name="logging_country" type="select">
+			<title xml:lang="ko">접속 국가 수집하기</title>
+			<title xml:lang="en">Logging Country</title>
+			<description xml:lang="ko">접속 국가 순위를 사용하려면 '예'를 선택하세요. (홈페이지 접근 속도가 느려질 수 있습니다.)</description>
+			<description xml:lang="en">Select 'Yes' for using access country ranking (Access speed of your homepage may be slower.)</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (사용 안함)</title>
+                <title xml:lang="en">No (Not Use)</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (사용)</title>
+                <title xml:lang="en">Yes (Use)</title>
+            </options>
+		</var>
+		<var name="exclude_bot" type="select">
+			<title xml:lang="ko">알려진 봇의 접근 기록 제외</title>
+			<title xml:lang="en">Exclude access data of known bots</title>
+			<description xml:lang="ko">알려진 검색 로봇 및 크로울러 등의 접근 기록을 제외합니다.</description>
+			<description xml:lang="en">Exclude access data of known bots and crawlers.</description>
+            <options value="no">
+                <title xml:lang="ko">아니요 (포함)</title>
+                <title xml:lang="en">No (Include)</title>
+			</options>
+            <options value="yes">
+                <title xml:lang="ko">예 (포함 안함)</title>
+                <title xml:lang="en">Yes (Not Include)</title>
+            </options>
+		</var>
+		<var name="treat_msie6_bot" type="select">
+			<title xml:lang="ko">MSIE 6을 봇으로 취급</title>
+			<title xml:lang="en">Treat MSIE 6 as a bot</title>
+			<description xml:lang="ko">중국산 봇에서 많이 사용하는 Microsoft Internet Explorer 6.x로 된 UserAgent를 봇으로 취급합니다.</description>
+			<description xml:lang="en">Treat a UserAgent with Microsoft Internet Explorer 6.x as a bot.</description>
+            <options value="yes">
+                <title xml:lang="ko">예 (사용)</title>
+                <title xml:lang="en">Yes (Use)</title>
+            </options>
+            <options value="no">
+                <title xml:lang="ko">아니요 (사용 안 함)</title>
+                <title xml:lang="en">No (Do not use)</title>
+			</options>
+		</var>
+		<var name="treat_moz5_bot" type="select">
+			<title xml:lang="ko">Mozilla/5.0을 봇으로 취급</title>
+			<title xml:lang="en">Treat Mozilla/5.0 as a bot</title>
+			<description xml:lang="ko">다음 봇에서 사용하는 'Mozilla/5.0'로만 된 UserAgent를 봇으로 취급합니다.</description>
+			<description xml:lang="en">Treat a UserAgent with 'Mozilla/5.0' only as a bot.</description>
+            <options value="yes">
+                <title xml:lang="ko">예 (사용)</title>
+                <title xml:lang="en">Yes (Use)</title>
+            </options>
+            <options value="no">
+                <title xml:lang="ko">아니요 (사용 안 함)</title>
+                <title xml:lang="en">No (Do not use)</title>
+			</options>
+		</var>
+		<var name="exclude_uagent" type="text" default="">
+			<title xml:lang="ko">제외할 UserAgent</title>
+			<title xml:lang="en">UserAgent to Exclude</title>
+			<description xml:lang="ko">이 문자열을 포함하는 UserAgent는 기록에 넣지 않습니다.
+				항목이 여러 개일 경우 각 문자열은 '|'로 구분하세요. (예: bot|slurp|spider|yeti|daumoa)</description>
+			<description xml:lang="en">UserAgents including these strings are not included.
+				Two or more items must be seperated by '|'. (Ex: bot|slurp|spider|yeti|daumoa)</description>
+		</var>
+		<var name="exclude_host" type="text" default="">
+			<title xml:lang="ko">제외할 호스트</title>
+			<title xml:lang="en">Hosts to Exclude</title>
+			<description xml:lang="ko">이 문자열을 포함하는 주소는 기록에 넣지 않습니다.
+				항목이 여러 개일 경우 각 문자열은 '|'로 구분하세요. (예: google|www.xpressengine.com)</description>
+			<description xml:lang="en">Hosts including these strings are not included.
+				Two or more items must be seperated by '|'. (Ex: google|www.xpressengine.com)</description>
+		</var>
+		<var name="delete_olddata" type="text" default="">
+			<title xml:lang="ko">자동 삭제</title>
+			<title xml:lang="en">Auto-Delete</title>
+			<description xml:lang="ko">지정한 일 수가 지난 데이터를 자동 삭제합니다. (기본값: 0 = 자동 삭제하지 않습니다.)
+				자동 삭제 시 리퍼러 기록만 삭제하고 순위 데이터는 변경하지 않습니다.</description>
+			<description xml:lang="en">Data after these days are automatically deleted. (Default: 0 = Do not delete automatically.)
+				Auto-Delete will delete referer log only, but do not delete or modify referer statistics.</description>
+		</var>
+	</extra_vars>
+</addon>
